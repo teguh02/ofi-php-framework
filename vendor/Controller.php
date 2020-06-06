@@ -3,7 +3,7 @@
 namespace vendor;
 
 use App\Designs\design;
-use App\Models\DB;
+use vendor\DB;
 use App\provider\event;
 
 class Controller extends event
@@ -15,6 +15,18 @@ class Controller extends event
     {
         $this->flash = new \Plasticbrain\FlashMessages\FlashMessages();
         $this->response = null;
+    }
+
+    /**
+     * Untuk memvalidasi bahwa untuk mengunjungi suatu method 
+     * yang diberi kode ini harus menggunakan http method post
+     */
+
+    public function must_post()
+    {
+        if ($_SERVER['REQUEST_METHOD'] != "POST") {
+            $this->response() -> error500("Error, because this method are using POST method");
+        } 
     }
 
     public function response()

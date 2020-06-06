@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use vendor\Controller;
-use App\Core\helper;
-use App\Models\DB;
+use App\Core\helper as h; // Untuk mempersingkat nama class
+use vendor\DB;
 
 class indexController extends Controller
 {
@@ -59,6 +59,14 @@ class indexController extends Controller
 
     public function index()
     {
-        echo 'it works';
+        // Must post to enter this method
+        if ($this->must_post()) {
+            echo 'it works, must post';
+        }
+    }
+
+    public function view()
+    {
+        $this->loadView('index', []);
     }
 }

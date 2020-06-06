@@ -3,7 +3,7 @@
 namespace App\Middleware\auth;
 
 use App\Core\Controller;
-use App\Models\DB;
+use vendor\DB;
 use App\Core\helper;
 
 /**

@@ -2,19 +2,41 @@
 
 /**
  * URL Declaration in array
- * HTTP Method Support GET and POST only, this optional value you can write or not.
+ * HTTP Method Support GET and POST only, this optional, you can write method or not.
  * The default HTTP Method is GET, if you not write HTTP Method  (See the sample).
- *
+ * 
  *  Kinds of Type :
  *    1. controller  is redirect to a controller (use @ for select a method)
  *    2. url         is redirect to a URL. For example you can write like this www.google.com
- *    3. print       is print a message
- *    4. view        is redirect to a view
- *    5. json        is to fetch a API URL and print to JSON format (Only support GET Method API)
- *                   For example you can use this API URL for testing
- *                   https://jsonplaceholder.typicode.com/todos/1
  * 
- *  Tips! If you need you can delete example route
+ * Now you can auto detect controller from url
+ * 
+ * For example from this url :
+ * http://localhost:9000/index/view
+ * 
+ * You can call indexController (inside Controllers folder)
+ * and call 'view' method
+ * 
+ * Note :  > http://localhost:9000/ is your app url
+ *         > index is the controller file and class name 
+ *            
+ *           Example :
+ *            # index = indexController.php
+ *            # home = homeController.php
+ *            # /base/auth = /base/authController.php
+ * 
+ *         > view is methods name what do you want to call
+ * 
+ *            public function view() {
+ *              // your code
+ *            }
+ * 
+ * For this url : 
+ * http://localhost:9000/Auth/home/index
+ * 
+ * Homecontroller are located in 'Auth folder'
+ *
+ * Tips! If you need you can delete example route
  */
 
 $route = [
@@ -29,28 +51,8 @@ $route = [
     // ['url' => "home",'type' => 'controller','to' => 'Auth\homeController@home',],
 
     [
-        'url'  => 'fb',
-        'type' => '', // URL Type not declared,
-        // this is will showing 500 error message
-        'to' => 'www.facebook.com',
-    ],
-
-    // How to fetch data from API server 
-    // using OFI PHP Framework
-    // For example i wan't to fetch money converter API data
-    // Australia Dollar (AUD) to Indonesian Rupiahs (IDR)
-    [
-        'url'  => 'currency', // Home (main index.php file)
-        'type' => 'json',
-        // using method from not to
-        'from'   => 'https://api.exchangeratesapi.io/latest?base=AUD&symbols=IDR,AUD', 
-    ],
-
-    [
         'url'  => '', // Home (main index.php file)
         'type' => 'controller',
         'to'   => 'indexController@index',
-    ],
-
-    
+    ],    
 ];

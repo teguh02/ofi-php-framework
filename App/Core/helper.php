@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Models\DB;
+use vendor\DB;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 

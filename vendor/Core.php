@@ -131,6 +131,16 @@ class Core extends event
             $url_explode = explode('/', $url);
             $total_url_explode = count($url_explode);
 
+            // Jika url memuat tanda ? (untuk parameter)
+            // maka hapus tanda tersebut dan seterusnya kebelakang
+            for ($i=0; $i < $total_url_explode ; $i++) { 
+                if (stripos($url_explode[$i], "?") !== false) {
+                    $explode_lagi = explode('?', $url_explode[$i]);
+                    array_pop($explode_lagi);
+                    $url_explode[$total_url_explode - 1] = $explode_lagi[0];
+                }
+            }
+
             $files = 'App/Controllers';
             $class_name = '\\App\\Controllers';
 

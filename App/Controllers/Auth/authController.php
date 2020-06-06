@@ -5,7 +5,7 @@ namespace App\Controllers\Auth;
 use vendor\Controller;
 use App\Core\helper;
 use App\Middleware\auth\auth;
-use App\Models\DB;
+use vendor\DB;
 use App\provider\event;
 
 class authController extends Controller

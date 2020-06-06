@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace vendor;
 
 use vendor\Model;
 
