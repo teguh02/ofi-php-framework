@@ -69,7 +69,7 @@ class Core extends event
 
     public function route()
     {
-        include 'App/route/web.php';
+        include 'route/web.php';
 
         $get_url = $this->project_index_path;
 

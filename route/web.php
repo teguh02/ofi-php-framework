@@ -53,6 +53,6 @@ $route = [
     [
         'url'  => '', // Home (main index.php file)
         'type' => 'controller',
-        'to'   => 'indexController@index',
+        'to'   => 'indexController@view',
     ],    
 ];

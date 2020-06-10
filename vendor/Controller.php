@@ -111,6 +111,6 @@ class Controller extends event
         $flash = new \Plasticbrain\FlashMessages\FlashMessages();
         $helper = new \App\Core\helper();
         extract($viewData);
-        include 'App/Views/'.$viewName.'.ofi.php';
+        include 'Views/'.$viewName.'.ofi.php';
     }
 }
