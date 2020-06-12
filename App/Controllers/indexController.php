@@ -22,9 +22,6 @@ class indexController extends Controller
      *  $this->response() -> redirect('http://google.com');
      *  $this->response() -> redirect('/login');
      * 
-     * Untuk mencetak data menjadi data array dan otomatis dipercantik
-     *  $this->response() -> print_r($res);
-     *  $this->response() -> var_dump($res);
      */
 
     public function getAll()
@@ -54,7 +51,14 @@ class indexController extends Controller
                 // -> first(); untuk mendapatkan data pertama saja
                 // -> total(); untuk mendapatkan jumlah semua data       
 
+        // Memberikan response berupa json (200 merupakan http code statusnya)
        return $this->response()  -> json($res, 200);
+
+        // Memberikan response berupa print_r yang telah dipercantik
+       return $this->response() -> print_r($res);
+
+       // Memberikan response berupa var_dump yang telah dipercantik
+       return $this->response() -> var_dump($res);
     }
 
     public function index()
@@ -63,6 +67,21 @@ class indexController extends Controller
         if ($this->must_post()) {
             echo 'it works, must post';
         }
+    }
+
+    public function requestExample()
+    {
+        // Untuk mendapatkan semua value yang ada di header
+        $d = $this->request() -> header() -> all();
+
+        // Untuk mendapatkan hanya satu value yang ada di header
+        $d = $this->request() -> header() -> first('nama');
+
+        // Untuk mendapatkan value inputan baik secara POST method
+        // maupun GET method
+        $d = $this->request() -> input('nama');
+
+        print_r($d);
     }
 
     public function view()

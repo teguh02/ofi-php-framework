@@ -9,51 +9,6 @@ use PHPMailer\PHPMailer\SMTP;
 class helper
 {
     /**
-     * Method request
-     * this method is to take a data
-     * from a request.
-     */
-    public static function request($val_request)
-    {
-        // memberi fasilitas bisa mengambil
-        // inputan yang namanya ada spasinya
-        $hapus_spasi = str_replace(' ', '', $val_request);
-        $jadi_kecil = strtolower($hapus_spasi);
-        
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            return $_REQUEST[$jadi_kecil];     
-        } else {
-            return $_GET[$hapus_spasi];
-        }
-
-    }
-
-    /**
-     * Method request
-     * this method is to take a data
-     * from a ajax request.
-     */
-
-    public static function ajaxRequest($val_request)
-    {   
-        $handle_request = null;
-        // Akan ada banyak method, delete, put dll 
-        switch ($_SERVER['REQUEST_METHOD']) {
-            case 'POST':
-                $handle_request = $_POST[$val_request];
-            case 'GET':
-                $handle_request = $_GET[$val_request];
-            default:
-                // throw error
-                break;
-        }
-        if(!$_REQUEST[$val_request]){
-            $handle_request = $_REQUEST[$val_request];
-        }
-        return $handle_request;
-    }
-
-    /**
      * Method hash
      * For hashing a sensitive word
      * like a password.

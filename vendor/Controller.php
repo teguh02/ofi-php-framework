@@ -9,12 +9,13 @@ use App\provider\event;
 class Controller extends event
 {
     protected $data = [];
-    private $response;
+    private $response = null;
+    private $request = null;
+    private $header_request = false;
 
     public function __construct()
     {
         $this->flash = new \Plasticbrain\FlashMessages\FlashMessages();
-        $this->response = null;
     }
 
     /**
@@ -29,34 +30,114 @@ class Controller extends event
         } 
     }
 
+    /**
+     * Chaining method request
+     */
+
+    public function request()
+    {   
+        $this->request = true;
+        return $this;
+    }
+
+    public function all()
+    {
+        if($this->request) {
+            // Jika header_request true maka tampilkan semua data heder
+            if($this->header_request) {
+                return getallheaders();
+            } else {
+
+                // Namun jika header_request false maka tampilkan 
+                // semua data raw yang masuk
+
+                if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $json = file_get_contents('php://input');
+                    return json_decode($json, true);
+                } else {
+                    echo 'Wrong HTTP Method, you must use POST method';
+                }
+            }
+        } else {
+            echo "Wrong method please select request chain method";
+        }
+    }
+
+    public function input($val_request)
+    {
+        if($this->request) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                return $_REQUEST[$val_request];     
+            } else {
+                return $_GET[$val_request];
+            }
+        } else {
+            echo "Wrong method please select request chain method";
+        }
+    }
+
+    public function header()
+    {
+        $this->header_request = true;
+        return $this;
+    }
+
+    public function first($request_val)
+    {
+        if($this->request) {
+            $header = getallheaders();
+            return $header[$request_val];
+        } else {
+            echo "Wrong method please select request chain method";
+        }
+    }
+
+    /**
+     * Chaining method response
+     */
+
     public function response()
     {
+        $this->response = true;
         return $this;
     }
 
     public function print_r($params)
     {
-        echo "<pre>";
-            print_r($params);
-        echo "<pre>";
+
+        if($this->response) {
+            echo "<pre>";
+                print_r($params);
+            echo "<pre>";
+        } else {
+            echo "Wrong method please select response chain method";
+        }
     }
 
     public function var_dump($params)
     {
-        echo "<pre>";
-            var_dump($params);
-            die();
-        echo "<pre>";
+        if($this->response) {
+            echo "<pre>";
+                var_dump($params);
+                die();
+            echo "<pre>";
+        } else {
+            echo "Wrong method please select response chain method";
+        }
     }
 
     // Response print to json
 
     public function json($data, $code)
     {
-        // Set content type menjadi application/json
-        header('Content-Type: application/json');
-        http_response_code($code);
-        echo json_encode($data);
+        if($this->response) {
+            // Set content type menjadi application/json
+            header('Content-Type: application/json');
+            http_response_code($code);
+            echo json_encode($data);
+        } else {
+            echo "Wrong method please select response chain method";
+        }
     }
 
     /**
