@@ -19,6 +19,21 @@ class helper
     }
 
     /**
+     * Method random
+     * to generate random string
+     */
+
+    public static function random($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    /**
      * Method slug
      * this method is to replace space
      * in a words to '-' sign.
@@ -91,7 +106,7 @@ class helper
         // $data['folder'] adalah nama folder tujuan untuk menjadi penyimpanan
 
         $ekstensi_diperbolehkan	= $mimes;
-        $nama = $_FILES[$data['form']]['name'];
+        $nama = strtolower(self::random(rand(4, 12))) . '-' . str_replace(' ', '-', $_FILES[$data['form']]['name']);
         $x = explode('.', $nama);
         $ekstensi = strtolower(end($x));
         $ukuran	= $_FILES[$data['form']]['size'];

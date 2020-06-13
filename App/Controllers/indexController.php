@@ -88,4 +88,19 @@ class indexController extends Controller
     {
         $this->loadView('index', []);
     }
+
+    public function uploadImage()
+    {
+        $upload = h::upload([
+            'form' => 'gb', // Input form name here
+            'folder' => 'gambar', // Folder name what do you wants to save your file
+        ]);
+
+        $upload['status']; // To get upload status
+        $upload['filename']; // To get filename after upload proccess
+        $upload['filesize']; // To get filesize after upload proccess
+        $upload['storageLocation']; // To where file are saved
+
+        $this->response() -> json($upload, 200);
+    }
 }
