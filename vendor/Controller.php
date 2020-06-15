@@ -27,7 +27,9 @@ class Controller extends event
     {
         if ($_SERVER['REQUEST_METHOD'] != "POST") {
             $this->response() -> error500("Error, because this method are using POST method");
-        } 
+        } else {
+            return true;
+        }
     }
 
     /**
