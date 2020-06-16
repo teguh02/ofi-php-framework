@@ -14,13 +14,21 @@ class authController extends Controller
     // Redirect to login page
     public function login()
     {
-        $this->loadTemplate('Auth\login', null);
+        if ($_SESSION['login_user_status'] == 'sukses' && $_SESSION['id_user'] != '') {
+            $this->loadTemplate('Auth\home', null);
+        } else {
+            $this->loadTemplate('Auth\login', null);
+        }
     }
 
     // Redirect to register page
     public function register()
     {
-        $this->loadTemplate('Auth\register', null);
+        if ($_SESSION['login_user_status'] == 'sukses' && $_SESSION['id_user'] != '') {
+            $this->loadTemplate('Auth\home', null);
+        } else {
+            $this->loadTemplate('Auth\register', null);
+        }
     }
 
     public function saveRegister()
@@ -52,27 +60,36 @@ class authController extends Controller
         }
     }
 
-    public function login_detect()
+    public function deteksiLogin()
     {
-        $this->whenLogin();
-        
-        $cek = $Databse_engine->deteksi_login($Auth);
-
-        if ($cek['status'] == 'yes') {
-            $_SESSION['login_user'] = 'sukses';
-            $_SESSION['id_user'] = $cek['id'];
-            helper::redirect('/home');
-        } else {
+        if($this->must_post()) {
+            $this->whenLogin();
+            $db = new DB();
             $flash = new \Plasticbrain\FlashMessages\FlashMessages();
-            $flash->error('Failed to login, try again', '/login');
+            $email_or_username = $this->request() -> input('emailorusername');
+            $password = $this->request() -> input('password');
+
+            $cek_login = $db->sql("SELECT * FROM users WHERE email = '$email_or_username' OR username = '$email_or_username'") 
+                            -> run();
+            if(count($cek_login[0]) > 0 && password_verify($password, $cek_login[0]['password'])) {
+                $_SESSION['login_user_status'] = 'sukses';
+                $_SESSION['id_user'] = $cek_login[0]['id'];
+
+                $this->loadTemplate('Auth/home');
+            } else {
+                $flash->error('Failed to login, please try again', '/login');
+            }
         }
     }
 
     public function logout()
     {
-        $this->whenLogout();
-        $_SESSION['login_user'] = null;
-        $_SESSION['id_user'] = null;
-        helper::redirect('/login');
+        if($this->must_post()) {
+            $this->whenLogout();
+            $_SESSION['login_user_status'] = null;
+            $_SESSION['id_user'] = null;
+            $flash = new \Plasticbrain\FlashMessages\FlashMessages();
+            $flash->success('Successfuly logout', '/login');
+        }
     }
 }

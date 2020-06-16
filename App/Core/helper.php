@@ -44,19 +44,6 @@ class helper
     }
 
     /**
-     * Method redirect
-     * To redirect to new url.
-     */
-    public function redirect($url)
-    {
-        if(strpos($url, 'http') !== false || strpos($url, 'https') !== false) {
-            return header('Location: '.$url);
-        } else {
-            return header('Location: '. PROJECTURL . '/' . $url);
-        }        
-    }
-
-    /**
      * Method  blockIp
      * This function is detect a IP, what thats IP is
      * allow to visit your sites or not. When not allowed
@@ -178,15 +165,16 @@ class helper
      * is to get your auth information
      * from the database (login required to use).
      */
-    public static function auth($datas)
+    public static function auth($data)
     {
         $results = null;
-        if (!$_SESSION['login_user']) return $results;
-        $val['id'] = $_SESSION['id_user'];
-        $database_engine = new DB();
-        $hasil = $database_engine->get_user_login($val);
-        $results = $hasil[$datas];
-        return $results;
+        $db = new DB();
+        $results = $db -> select() 
+                        -> from('users') 
+                        -> where('id', $_SESSION['id_user'])
+                        -> first();
+                        
+        return $results[$data];
     }
 
     public static function sendEmail($data)

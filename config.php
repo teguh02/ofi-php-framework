@@ -12,7 +12,8 @@ define('PROJECTNAME', 'OFI Framework');
 define('ENVIRONMENT', 'development');
 
 // Your Project URL
-define('PROJECTURL', 'http://localhost:9000/');
+// do not use the '/' at the end of the url http: // localhost: 9000
+define('PROJECTURL', 'http://localhost:9000');
 
 // Upload file function limiter 
 // default 1044070 = 1 mb

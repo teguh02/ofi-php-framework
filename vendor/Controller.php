@@ -144,11 +144,15 @@ class Controller extends event
 
     public function redirect($url)
     {
-        if(strpos($url, 'http') !== false || strpos($url, 'https') !== false) {
-            return header('Location: '.$url);
+        if($this->response) {
+            if(strpos($url, 'http') !== false || strpos($url, 'https') !== false) {
+                return header('Location: '.$url);
+            } else {
+                return header('Location: '. PROJECTURL . '/' . $url);
+            }        
         } else {
-            return header('Location: '. PROJECTURL . '/' . $url);
-        }        
+            echo "Wrong method please select response chain method";
+        }
     }
 
     public function error404()

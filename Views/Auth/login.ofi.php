@@ -20,12 +20,12 @@
             <div class="card-body">
                 <h5 class="mb-3">Login Page</h5>
 
-                <form action="#" method="POST">
+                <form action="/Auth/auth/deteksiLogin" method="POST">
                     <small>Email or Username</small>
-                    <input class="form-control mb-2" required name="email" type="text">
+                    <input class="form-control mb-2" required name="emailorusername" type="text">
 
                     <small>Password</small>
-                    <input class="form-control mb-3" required name="email" type="text">
+                    <input class="form-control mb-3" required name="password" type="password">
 
                     <button type="submit" class="btn btn-light border">
                         Login

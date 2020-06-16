@@ -9,16 +9,12 @@ class homeController extends Controller
 {
     public function __construct()
     {
-        //auth::check();
+        $auth = new auth();
+        $auth -> check();
     }
 
     public function home()
     {
-        $this->Views('home', null);
-    }
-
-    public function index()
-    {
-        echo "Hello world";
+        $this->loadTemplate('Auth/home', null);
     }
 }

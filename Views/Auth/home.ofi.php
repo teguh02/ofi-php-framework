@@ -5,10 +5,10 @@
                 <strong>Welcome <?php echo $helper::auth('fullname') ?> </strong>
             </div>
             <div class="card-body">
-                Welcome <?php echo $helper::auth('fullname') ?> in <?php echo PROJECTNAME ?> admin dashboard
+                Welcome <?php echo $helper::auth('fullname') . ' - ' . $helper::auth('email')  ?> in <?php echo PROJECTNAME ?> admin dashboard
 
                 <br><br>
-                <form action="/logout" method="post">
+                <form action="/Auth/auth/logout" method="post">
                     <button class="btn btn-danger" type="submit">Logout Here</button>
                 </form>
             </div>
