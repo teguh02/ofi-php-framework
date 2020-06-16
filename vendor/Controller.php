@@ -13,11 +13,6 @@ class Controller extends event
     private $request = null;
     private $header_request = false;
 
-    public function __construct()
-    {
-        $this->flash = new \Plasticbrain\FlashMessages\FlashMessages();
-    }
-
     /**
      * Untuk memvalidasi bahwa untuk mengunjungi suatu method 
      * yang diberi kode ini harus menggunakan http method post

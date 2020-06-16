@@ -3,22 +3,13 @@
 namespace App\Controllers\Auth;
 
 use vendor\Controller;
-use App\Core\helper;
+use App\Core\helper as h;
 use App\Middleware\auth\auth;
 use vendor\DB;
 use App\provider\event;
 
 class authController extends Controller
 {
-    public function __construct()
-    {
-        //auth::check();
-    }
-
-    public function test()
-    {
-        echo "it works";
-    }
 
     // Redirect to login page
     public function login()
@@ -32,31 +23,39 @@ class authController extends Controller
         $this->loadTemplate('Auth\register', null);
     }
 
-    public function register_save()
+    public function saveRegister()
     {
-        $this->whenRegistration();
-        $Auth['fullname'] = helper::request('Full name');
-        $Auth['username'] = helper::request('username');
-        $Auth['email'] = helper::request('email');
-        $Auth['password'] = helper::hash(helper::request('password'));
+        if($this->must_post()) {
+            $this->whenRegistration();
+            $db = new DB();
+            $flash = new \Plasticbrain\FlashMessages\FlashMessages();
 
-        $database_engine = new DB();
-        $status = $database_engine->insert($Auth, 'users');
-        $flash = new \Plasticbrain\FlashMessages\FlashMessages();
-        if ($status == 'gagal') {
-            $flash->error('Failed to registration, try again', '/register');
-        } else {
-            $flash->success('Registration success, please login now', '/register');
+            $cek_email = $db->select('email') -> from('users') -> where('email', $this->request() -> input('email')) -> get();
+            $cek_username = $db->select('username') -> from('users') -> where('username', $this->request() -> input('username')) -> get();
+
+            if(count($cek_email) > 0 && count($cek_username) > 0) {
+                $flash->error('Email or username already exists, please try again', '/register');
+            } else {
+                $status = $db -> insert() -> into('users')
+                        -> value('fullname', $this->request() -> input('fullname'))
+                        -> value('username', $this->request() -> input('username'))
+                        -> value('email', $this->request() -> input('email'))
+                        -> value('password', h::hash($this->request() -> input('email')))
+                        -> save();
+                
+                if ($status) {
+                    $flash->success('Registration success, please login now', '/register');
+                } else {
+                    $flash->error('Failed to registration, try again', '/register');
+                }
+            }
         }
     }
 
     public function login_detect()
     {
         $this->whenLogin();
-        $Auth['usernameoremail'] = helper::request('usernameoremail');
-        $Auth['password'] = helper::request('password');
-
-        $Databse_engine = new DB();
+        
         $cek = $Databse_engine->deteksi_login($Auth);
 
         if ($cek['status'] == 'yes') {

@@ -19,28 +19,23 @@
             <div class="card-body">
                 <h5 class="mb-3">Register Page</h5>
 
-                <?php
-                    $design->form('post', [
-                        'url'    => '/save-pendaftaran', // where do you want to go
-                        'submit' => 'Register', // button value
-                        'input'  => [ // All of input content
-                            [
-                                'name' => 'Full name',
-                            ],
-                            [
-                                'name' => 'username',
-                            ],
-                            [
-                                'name' => 'email',
-                                'type' => 'email',
-                            ],
-                            [
-                                'name' => 'password',
-                                'type' => 'password',
-                            ],
-                        ],
-                    ]);
-                ?>
+               <form action="/Auth/auth/saveRegister" method="post">
+                   <small>Fullname</small>
+                   <input class="form-control mb-2" required name="fullname" type="text">
+
+                   <small>Username</small>
+                   <input class="form-control mb-2" required name="username" type="text">
+
+                   <small>Email</small>
+                   <input class="form-control mb-2" required name="email" type="email">
+
+                   <small>Password</small>
+                   <input class="form-control mb-3" required name="password" type="password">
+
+                   <button type="submit" class="btn btn-light border">
+                    Register
+                   </button>
+               </form>
             </div>
         </div>
     </div>

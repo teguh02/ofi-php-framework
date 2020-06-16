@@ -20,21 +20,17 @@
             <div class="card-body">
                 <h5 class="mb-3">Login Page</h5>
 
-                <?php
-                    $design->form('post', [
-                        'url'    => '/deteksi-masuk',
-                        'submit' => 'Login',
-                        'input'  => [
-                            [
-                                'name' => 'username or email',
-                            ],
-                            [
-                                'name' => 'password',
-                                'type' => 'password',
-                            ],
-                        ],
-                    ]);
-                ?>
+                <form action="#" method="POST">
+                    <small>Email or Username</small>
+                    <input class="form-control mb-2" required name="email" type="text">
+
+                    <small>Password</small>
+                    <input class="form-control mb-3" required name="email" type="text">
+
+                    <button type="submit" class="btn btn-light border">
+                        Login
+                    </button>
+                </form>
             </div>
         </div>
     </div>
