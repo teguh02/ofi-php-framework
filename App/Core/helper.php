@@ -104,12 +104,12 @@ class helper
 
                     // Otomatis membuat direktori baru jika direktori yang diminta tidak ditemukan
 
-                    $dir = PROJECTPATH . '/assets/upload/' . $data['folder'];
+                    $dir = BASEURL . '/assets/upload/' . $data['folder'];
                     if (!file_exists( $dir ) && !is_dir($dir)) {
                         mkdir($dir);       
                     } 
 
-                    move_uploaded_file($file_tmp, PROJECTPATH . '/assets/upload/' . $data['folder'] . '/' . $nama);
+                    move_uploaded_file($file_tmp, BASEURL . '/assets/upload/' . $data['folder'] . '/' . $nama);
 
                     $bytes = $ukuran;
 

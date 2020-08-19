@@ -21,10 +21,16 @@ define('MAXUPLOAD', 1044070);
 
 
 // Database MYSQLI connection configuration
-$config['host'] = 'localhost';
-$config['dbname'] = 'lks';
-$config['user'] = 'root';
-$config['password'] = '';
+$config = [
+    'driver'        => 'mysql',
+    'port'          => 3306,
+    'host'          => 'localhost',
+    'dbname'        => 'ofi',
+    'username'      => 'root',
+    'password'      => '',
+    'timestamp'     => false // Give created_at and updated_at to your table
+];
+
 
 /**
  * Define SEO tag for your website

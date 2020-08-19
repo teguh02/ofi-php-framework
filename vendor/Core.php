@@ -7,17 +7,49 @@ use App\provider\event;
 use vendor\Controller;
 use App\Core\helper;
 
+session_start();
+global $config;
+require 'config.php';
+
+// Dont change this line
+define('BASE', (
+    isset($_SERVER['HTTPS']) &&
+    $_SERVER['HTTPS'] === 'on' ? 'https' : 'http'
+).
+    "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+define('BASEURL', __DIR__.'/');
+
 class Core extends event
 {
-    private $Url = null;
-    private $Controller = '';
-    private $Action = '';
-    private $Params = [];
-
     public function __construct()
     {
         $this->middleware();
         $this->project_index_path = $_SERVER['REQUEST_URI'];
+
+        switch (ENVIRONMENT) {
+            case 'development':
+                ini_set('display_errors', 1);
+                ini_set('display_startup_errors', 1);
+        
+                $whoops = new \Whoops\Run();
+                $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+                $whoops->register();
+                error_reporting(E_ALL);
+                error_reporting(E_ALL & E_NOTICE & E_DEPRECATED & E_STRICT & E_USER_NOTICE & E_USER_DEPRECATED);
+                break;
+        
+            case 'production':
+                error_reporting(0);
+                $controller = new Controller();
+                $controller->error500('Something went wrong, please contact your admin');
+                break;
+        
+            default:
+                error_reporting(0);
+                $controller = new Controller();
+                $controller->error500('Something went wrong, please contact your admin');
+                break;
+        }
     }
 
     /**
