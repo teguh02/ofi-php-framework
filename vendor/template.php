@@ -1,3 +1,13 @@
+<?php
+use DebugBar\StandardDebugBar;
+
+	if(ENVIRONMENT == 'development') {
+		$debugbar = new StandardDebugBar();
+		$debugbarRenderer = $debugbar->getJavascriptRenderer();	
+		$debugbar["messages"]->addMessage("OFI PHP Framework Ready To Use!");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,15 +29,12 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo PROJECTURL ?>/assets/css/bootstrap.min.css">
 		<script src="<?php echo PROJECTURL ?>/assets/js/jquery.min.js"></script>
 		<script src="<?php echo PROJECTURL ?>/assets/js/bootstrap.min.js"></script>
+		<?php if(ENVIRONMENT == 'development') echo $debugbarRenderer->renderHead() ?>
 </head>
 <body>
 
 	<?php $this->loadViewInTemplate($viewName,$viewData) ?>
-
-	<?php 
-		if(ENVIRONMENT == 'development')
-		//include 'debuger/template.php';
-	?>
+	<?php if(ENVIRONMENT == 'development') echo $debugbarRenderer->render() ?>
 
 </body>
 </html>

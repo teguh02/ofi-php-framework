@@ -2,10 +2,10 @@
 
 namespace vendor;
 
-use App\Middleware\cors;
 use App\provider\event;
 use vendor\Controller;
 use App\Core\helper;
+use App\Middleware\kernel as middlewareKernel;
 
 session_start();
 global $config;
@@ -23,7 +23,9 @@ class Core extends event
 {
     public function __construct()
     {
-        $this->middleware();
+        $middleware = new middlewareKernel();
+        $middleware->register();
+
         $this->project_index_path = $_SERVER['REQUEST_URI'];
 
         switch (ENVIRONMENT) {
@@ -50,17 +52,6 @@ class Core extends event
                 $controller->error500('Something went wrong, please contact your admin');
                 break;
         }
-    }
-
-    /**
-     * Method Middleware
-     * for register your middleware in
-     * OFI PHP Framewrok system.
-     */
-    public function middleware()
-    {
-        helper::blockIp();
-        cors::allow();
     }
 
     /**

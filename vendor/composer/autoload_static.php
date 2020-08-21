@@ -14,6 +14,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
     );
 
@@ -37,6 +38,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
+            'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
@@ -60,6 +62,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'D' => 
         array (
             'Doctrine\\Inflector\\' => 19,
+            'DebugBar\\' => 9,
         ),
         'C' => 
         array (
@@ -78,7 +81,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         ),
         'vendor\\' => 
         array (
-            0 => 'C:\\xampp_7.1\\htdocs\\OFI-PHP-FW\\vendor',
+            0 => 'C:\\xampp\\htdocs\\lks\\vendor',
         ),
         'Whoops\\' => 
         array (
@@ -115,6 +118,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'Symfony\\Contracts\\Service\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
         'Symfony\\Component\\Translation\\' => 
         array (
@@ -171,6 +178,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
+        ),
+        'DebugBar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
         ),
         'Carbon\\' => 
         array (
