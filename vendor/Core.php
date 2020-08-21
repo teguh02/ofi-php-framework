@@ -42,8 +42,8 @@ class Core extends event
         
             case 'production':
                 error_reporting(0);
-                $controller = new Controller();
-                $controller->error500('Something went wrong, please contact your admin');
+                // $controller = new Controller();
+                // $controller->error500('Something went wrong, please contact your admin');
                 break;
         
             default:
