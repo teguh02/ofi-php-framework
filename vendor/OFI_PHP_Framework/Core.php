@@ -1,9 +1,9 @@
 <?php
 
-namespace vendor;
+namespace vendor\OFI_PHP_Framework;
 
 use App\provider\event;
-use vendor\Controller;
+use vendor\OFI_PHP_Framework\Controller;
 use App\Core\helper;
 use App\Middleware\kernel as middlewareKernel;
 
@@ -12,7 +12,7 @@ global $config;
 require 'config.php';
 
 // Dont change this line
-define('BASEURL', __DIR__.'/');
+define('BASEURL', $_SERVER["DOCUMENT_ROOT"]);
 
 class Core extends event
 {

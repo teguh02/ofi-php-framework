@@ -22,6 +22,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'v' => 
         array (
             'voku\\' => 5,
+            'vendor\\OFI_PHP_Framework\\' => 25,
         ),
         'W' => 
         array (
@@ -77,6 +78,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'vendor\\OFI_PHP_Framework\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/OFI_PHP_Framework',
         ),
         'Whoops\\' => 
         array (

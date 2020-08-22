@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use vendor\Controller;
+use vendor\OFI_PHP_Framework\Controller;
 use App\Core\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
 use App\blog;

@@ -35,7 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "App/"
+            "App\\": "App/",
+            "vendor\\OFI_PHP_Framework\\": "vendor/OFI_PHP_Framework"
         }
     },
     "scripts" : {

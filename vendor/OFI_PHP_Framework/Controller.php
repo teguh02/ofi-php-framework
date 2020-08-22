@@ -1,11 +1,12 @@
 <?php
 
-namespace vendor;
+namespace vendor\OFI_PHP_Framework;
 
 use App\provider\event;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
+use DebugBar\StandardDebugBar;
 
 class Controller extends event
 {
@@ -189,8 +190,7 @@ class Controller extends event
         $viewData['title'] = 'Not Found';
         $viewData['msg'] = 'Sorry but the page you are looking for does not exist, have been removed.';
 
-        extract($viewData);
-        include 'vendor/error_404.php';
+        $this->pageError($viewData);
     }
 
     public function error500($pesan)
@@ -200,8 +200,7 @@ class Controller extends event
         $viewData['title'] = 'Server Error';
         $viewData['msg'] = $pesan;
 
-        extract($viewData);
-        include 'vendor/error_404.php';
+        $this->pageError($viewData);
     }
 
     public function loadView($viewName, $viewData = [])
@@ -212,7 +211,48 @@ class Controller extends event
     public function loadTemplate($viewName, $viewData = [])
     {
         extract($viewData);
-        include 'vendor/template.php';
+
+        if(ENVIRONMENT == 'development') {
+            $debugbar = new StandardDebugBar();
+            $debugbarRenderer = $debugbar->getJavascriptRenderer();	
+            $debugbar["messages"]->addMessage("OFI PHP Framework Ready To Use!");
+            $debugbar["messages"]->addMessage("Base DIR Project : " . BASEURL);
+        }
+
+        echo '
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>' . PROJECTNAME . '</title>
+                <meta charset="utf-8">
+                <meta name="description" content="'. DESCRIPTION .'" >
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta property="og:title" content="'. PROJECTNAME .'" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="'. PROJECTURL .'" />
+                <link rel="shortcut icon" href="'. PROJECTURL .'/assets/favicon.png">
+                <meta property="og:image" content="'. PROJECTURL .'/assets/favicon.png" />
+                <meta name="robots" content="index, follow">
+                <meta name="keywords" content="'. KEYWORDS .'">
+                <meta name="author" content="'. AUTHOR .'">
+                <meta name="google-site-verification" content="'. GoogleSiteVerification .'" />
+
+                    <link rel="stylesheet" type="text/css" href="'. PROJECTURL .'/assets/css/bootstrap.min.css">
+                    <script src="'. PROJECTURL .'/assets/js/jquery.min.js"></script>
+                    <script src="'. PROJECTURL .'/assets/js/bootstrap.min.js"></script>';
+                    if(ENVIRONMENT == "development") echo $debugbarRenderer->renderHead();
+            echo '
+            </head>
+            <body>';
+
+                $this->loadViewInTemplate($viewName,$viewData);
+                if(ENVIRONMENT == "development") echo $debugbarRenderer->render();
+
+            echo '
+            </body>
+            </html>
+            ';
     }
 
     public function loadViewInTemplate($viewName, $viewData)
@@ -221,5 +261,42 @@ class Controller extends event
         $helper = new \App\Core\helper();
         extract($viewData);
         include 'Views/'.$viewName.'.ofi.php';
+    }
+
+    private function pageError($viewData)
+    {
+        extract($viewData);
+
+        echo '
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title> '. $status .' Error - '. PROJECTNAME .'</title>
+                <link rel="stylesheet" type="text/css" href="'. PROJECTURL .'/assets/css/bootstrap.min.css">
+                <style>body {margin: 0px !important;}html, body {overflow: hidden !important;}</style>
+            </head>
+
+            <body>
+                <div class="container-fluid text-center d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+                    <div>
+                        <h1 class="display-2"> '. $status .' ' . $title . '</h1>
+                        <p>
+                            '. $msg .'
+                        </p>
+
+                        <br>
+
+                        <a onclick="window.history.back();" href="#">
+                            <button class="btn btn-light border w-50">Go Back</button>
+                        </a>
+                    </div>
+
+                </div>
+            </body>
+            </html>
+        ';
     }
 }

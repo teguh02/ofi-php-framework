@@ -19,5 +19,5 @@ require 'vendor/autoload.php';
  * Run The Application
  */
 
-$core = new vendor\Core();
+$core = new vendor\OFI_PHP_Framework\Core();
 $core->run();
