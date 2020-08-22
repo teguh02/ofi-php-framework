@@ -81,7 +81,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         ),
         'vendor\\' => 
         array (
-            0 => 'C:\\xampp\\htdocs\\lks\\vendor',
+            0 => 'C:\\xampp_7.1\\htdocs\\OFI-PHP-FW\\vendor',
         ),
         'Whoops\\' => 
         array (

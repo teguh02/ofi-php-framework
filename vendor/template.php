@@ -5,6 +5,7 @@ use DebugBar\StandardDebugBar;
 		$debugbar = new StandardDebugBar();
 		$debugbarRenderer = $debugbar->getJavascriptRenderer();	
 		$debugbar["messages"]->addMessage("OFI PHP Framework Ready To Use!");
+		$debugbar["messages"]->addMessage("Base Project Dir : " . BASEURL);
 	}
 ?>
 
