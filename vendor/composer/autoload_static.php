@@ -22,7 +22,6 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'v' => 
         array (
             'voku\\' => 5,
-            'vendor\\' => 7,
         ),
         'W' => 
         array (
@@ -78,10 +77,6 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
-        ),
-        'vendor\\' => 
-        array (
-            0 => 'C:\\xampp_7.1\\htdocs\\OFI-PHP-FW\\vendor',
         ),
         'Whoops\\' => 
         array (
