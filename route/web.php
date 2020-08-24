@@ -54,6 +54,12 @@ $route = [
         'type' => 'controller',
         'to'   => 'indexController@view',
     ],   
+
+    [
+        'url'  => 'test', // Home (main index.php file)
+        'type' => 'controller',
+        'to'   => 'indexController@test',
+    ],   
     
     [
         'url'  => 'uploadImage',

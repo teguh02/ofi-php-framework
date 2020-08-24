@@ -4,7 +4,7 @@ namespace vendor\OFI_PHP_Framework;
 
 use App\provider\event;
 use vendor\OFI_PHP_Framework\Controller;
-use App\Core\helper;
+use Exception;
 use App\Middleware\kernel as middlewareKernel;
 
 session_start();
@@ -36,15 +36,22 @@ class Core extends event
                 break;
         
             case 'production':
+                
                 error_reporting(0);
-                // $controller = new Controller();
-                // $controller->error500('Something went wrong, please contact your admin');
+                try {
+                    $this->run();
+                } catch (\Throwable $th) {
+                    $controller = new Controller();
+                    $controller->error500('Something went wrong, please contact this sites admin');
+                    die();
+                }
+
                 break;
-        
+
             default:
                 error_reporting(0);
                 $controller = new Controller();
-                $controller->error500('Something went wrong, please contact your admin');
+                $controller->error500('Something went wrong, please set your application environment');
                 break;
         }
     }
@@ -66,23 +73,19 @@ class Core extends event
      */
     public function searchByValue($id, $array)
     {
-        foreach ($array as $key => $val) {
+        foreach ($array as $val) {
             // Jika Request URI sama dengan /
             // dan url kosong ditemukan maka akan dialihkan ke index
             if ($this->project_index_path == '/' && $val['url'] == '') {
-                $resultSet = $val;
-
-                return $resultSet;
+                return $val;
             } else {
-                if (strpos($id, $val['url']) !== false) {
-                    $resultSet = $val;
-
-                    return $resultSet;
-                }
+                if (strtolower($id) == strtolower($val['url'])) {
+                    return $val;
+                }                
             }
         }
 
-        return null;
+        return false;
     }
 
     public function route()
@@ -91,16 +94,51 @@ class Core extends event
 
         $get_url = $this->project_index_path;
 
-        // Konvert string ke array
+        /**
+         * Konvert string ke array
+         * Hasilnya str_split($get_url) akan menjadi
+         * Array
+         * (
+         *     [0] => /
+         *     [1] => t
+         *     [2] => e
+         *     [3] => s
+         *     [4] => t
+         * )
+         */
+
         $url_array = str_split($get_url);
 
-        // Proses menghilangkan data array index 0
-        // dan data array index 0 adalah tanda /
+        /**
+         * Proses menghilangkan menggunakan array_shift($url_array), 
+         * pada data array index 0 (tanda '/' hilang)
+         * Hasil akhirnya menjadi
+         * Array
+         * (
+         *     [0] => t
+         *     [1] => e
+         *     [2] => s
+         *     [3] => t
+         * )
+         */
 
         array_shift($url_array);
 
-        // Hasil URL setelah melalui proses
-        // hapus tanda / di awal URL
+        /**
+         * Hasil URL setelah melalui proses diatas akan menjadi 
+         * dari seperti ini 
+         * Array
+         * (
+         *     [0] => t
+         *     [1] => e
+         *     [2] => s
+         *     [3] => t
+         * )
+         * 
+         * akan menjadi seperti ini
+         * test
+         * dengan ada nya proses $url = implode('', $url_array);
+         */
 
         $url = implode('', $url_array);
 
@@ -137,6 +175,13 @@ class Core extends event
                 if (!$searchValue['method'] || $_SERVER['REQUEST_METHOD'] === strtoupper($searchValue['method'])) {
                     $className = '\\App\\Controllers\\'.$get_only_Controller_Name;
                     $classNameController = new $className();
+
+                    if (!method_exists($classNameController, $method_name)) {
+                        $classNameErr = explode('\\', $className);
+                        throw new Exception('File ' . str_replace('\\', '/', $className) .  ".php Error : Can't find method " . $get_only_Method_Name . '() in Class ' . $classNameErr[count($classNameErr) - 1], 1);
+                        die();
+                    }
+
                     $classNameController->$get_only_Method_Name();
                 } else {
                     $controller->error500('Error '.$searchValue['url'].' url is '.strtoupper($searchValue['method']).' HTTP Method');
@@ -176,9 +221,22 @@ class Core extends event
                 $method_name = $url_explode[$total_url_explode - 1];
                 $className = $class_name;
                 $classNameController = new $className();
+
+                if (!method_exists($classNameController, $method_name)) {
+                    
+                    if($method_name == '' || $method_name == null) {
+                        throw new Exception("Method can't null in your request", 1);
+                        die();
+                    }
+
+                    $classNameErr = explode('\\', $className);
+                    throw new Exception('File ' . str_replace('\\', '/', $className) .  ".php Error : Can't find method " . $method_name . '() in Class ' . $classNameErr[count($classNameErr) - 1], 1);
+                    die();
+                }
+
                 $classNameController -> $method_name();
             } else {
-                $controller->error404();
+                throw new Exception("Class " . $class_name . ' not found', 1);
             }
         }
     }

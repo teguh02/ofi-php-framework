@@ -59,16 +59,18 @@ class indexController extends Controller
         # Memanggil class helper dengan alias h dan 
         # memanggil method upload
 
-        $upload = h::upload([
-            'form' => 'gb', // Input form name here
-            'folder' => 'gambar', // Folder name what do you wants to save your file
-        ]);
-
-        $upload['status']; // To get upload status
-        $upload['filename']; // To get filename after upload proccess
-        $upload['filesize']; // To get filesize after upload proccess
-        $upload['storageLocation']; // To where file are saved
-
-        $this->response() -> json($upload, 200);
+        if($this->must_post()) {
+            $upload = h::upload([
+                'form' => 'gb', // Input form name here
+                'folder' => 'gambar', // Folder name what do you wants to save your file
+            ]);
+    
+            $upload['status']; // To get upload status
+            $upload['filename']; // To get filename after upload proccess
+            $upload['filesize']; // To get filesize after upload proccess
+            $upload['storageLocation']; // To where file are saved
+    
+            $this->response() -> json($upload, 200);
+        }
     }
 }
