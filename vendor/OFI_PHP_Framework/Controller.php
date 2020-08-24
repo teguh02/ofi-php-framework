@@ -4,9 +4,12 @@ namespace vendor\OFI_PHP_Framework;
 
 use App\provider\event;
 use Illuminate\Database\Capsule\Manager as DB;
+use Illuminate\Database\Capsule\ManagerTrait;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use DebugBar\StandardDebugBar;
+use vendor\OFI_PHP_Framework\Flash\message;
+use Exception;
 
 class Controller extends event
 {
@@ -14,6 +17,9 @@ class Controller extends event
     private $response = null;
     private $request = null;
     private $header_request = false;
+
+    use message;
+    use ManagerTrait;
 
     public function __construct()
     {
@@ -298,5 +304,32 @@ class Controller extends event
             </body>
             </html>
         ';
+    }
+
+    /**
+     * Untuk menyetel session tertentu pada SESSION PHP
+     */
+
+    public function setSession($key, $value)
+    {
+        return $_SESSION[$key] = $value;
+    }
+
+    /**
+     * Untuk mendapatkan semua data atau 
+     * salah satu saja data SESSION
+     */
+
+    public function getSession($params = false)
+    {
+        if($params != false) {
+            if(isset($_SESSION[$params])) {
+                return $_SESSION[$params];
+            } else {
+                return 0;
+            }
+        } else {
+            return $_SESSION;
+        }
     }
 }

@@ -41,25 +41,18 @@
 
 $route = [
     // Auth Route Declaration
-    // you can remove comment tag to turn on this route
+    // you can remove '//' tag to turn on the route
 
     ['url' => "login",'type' => 'controller','to' => 'Auth\authController@login',],
     ['url' => "register",'type' => 'controller','to' => 'Auth\authController@register',],
-    // ['url' => "deteksi-masuk", 'method' => 'POST', 'type' => 'controller','to' => 'Auth\authController@login_detect',],
     // ['url' => "logout", 'method' => 'POST', 'type' => 'controller','to' => 'Auth\authController@logout',],
-    // ['url' => "home",'type' => 'controller','to' => 'Auth\homeController@home',],
+    ['url' => "home",'type' => 'controller','to' => 'Auth\homeController@home',],
 
     [
         'url'  => '', // Home (main index.php file)
         'type' => 'controller',
         'to'   => 'indexController@view',
-    ],   
-
-    [
-        'url'  => 'test', // Home (main index.php file)
-        'type' => 'controller',
-        'to'   => 'indexController@test',
-    ],   
+    ],    
     
     [
         'url'  => 'uploadImage',

@@ -2,9 +2,8 @@
 
 namespace App\Middleware\auth;
 
-use vendor\Controller;
-use vendor\DB;
-use App\Core\helper;
+use App\users;
+use vendor\OFI_PHP_Framework\Controller;
 
 /**
  * Login Middleware
@@ -16,10 +15,11 @@ class auth extends Controller
 {
     public function check()
     {
-        if ($_SESSION['login_user_status'] == 'sukses' && $_SESSION['id_user'] != '') {
-            return true;
-        } else {
-            $this->response() -> redirect('/Auth/auth/login');
+        $app_id_user = $this->getSession('app_id_user');
+        $users = users::where('id', $app_id_user) -> first();
+
+        if(!$users) {
+            return $this->message()->js()->error('You must login to access this sites', '/');
         }
     }
 }

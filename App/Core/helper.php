@@ -2,11 +2,13 @@
 
 namespace App\Core;
 
-use vendor\DB;
+use App\users;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
+use vendor\OFI_PHP_Framework\Controller;
+use Exception;
 
-class helper
+class helper extends Controller
 {
     /**
      * Method hash
@@ -167,14 +169,24 @@ class helper
      */
     public static function auth($data)
     {
-        $results = null;
-        $db = new DB();
-        $results = $db -> select() 
-                        -> from('users') 
-                        -> where('id', $_SESSION['id_user'])
-                        -> first();
-                        
-        return $results[$data];
+        $app_id_user = parent::getSession('app_id_user');
+        
+        if($app_id_user) {
+            $users = users::where('id', $app_id_user) -> first();
+
+            if($users) {
+                if(isset($data)) {
+                    return $users -> $data;
+                } else {
+                    return $users;
+                }
+            } else {
+                return 0;
+            }
+        } else {
+            $controller = new Controller();
+            $controller -> message()->flash()->error('You must login first', '/login');
+        }
     }
 
     public static function sendEmail($data)

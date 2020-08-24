@@ -3,59 +3,45 @@
 namespace App\Controllers\Auth;
 
 use vendor\OFI_PHP_Framework\Controller;
-use App\Middleware\auth\auth;
+use App\users;
+use App\provider\event;
+use vendor\OFI_PHP_Framework\Controller\auth;
 
 class authController extends Controller
 {
-
-    // Redirect to login page
-    public function login()
-    {
-        if ($_SESSION['login_user_status'] == 'sukses' && $_SESSION['id_user'] != '') {
-            $this->loadTemplate('Auth\home', null);
-        } else {
-            $this->loadTemplate('Auth\login', null);
-        }
-    }
-
-    // Redirect to register page
-    public function register()
-    {
-        if ($_SESSION['login_user_status'] == 'sukses' && $_SESSION['id_user'] != '') {
-            $this->loadTemplate('Auth\home', null);
-        } else {
-            $this->loadTemplate('Auth\register', null);
-        }
-    }
+    use auth;
 
     public function saveRegister()
     {
+        $event = new event();
+        $event->whenRegistration();
+
         if($this->must_post()) {
             $this->whenRegistration();
-            $flash = new \Plasticbrain\FlashMessages\FlashMessages();
-
-            // Code here
-        }
-    }
-
-    public function deteksiLogin()
-    {
-        if($this->must_post()) {
-            $this->whenLogin();
             
-            // Your Code
-        }
-    }
+            $fullname = $this->request()->input('fullname');
+            $username = $this->request()->input('username');
+            $email = $this->request()->input('email');
+            $password = password_hash($this->request()->input('password'), PASSWORD_BCRYPT);
 
-    public function logout()
-    {
-        if($this->must_post()) {
-            $this->whenLogout();
+            $cek = users::where('email', $email) -> orWhere('username', $username) -> first();
+
+            if($cek) {
+                $this->message()->flash()->error('Username or email are registered in our system', '/register');
+                die();
+            }
+
+            $users = new users();
+            $users->fullname = $fullname;
+            $users->username = $username;
+            $users->email = $email;
+            $users->password = $password;
             
-            // Code
-
-            $flash = new \Plasticbrain\FlashMessages\FlashMessages();
-            $flash->success('Successfuly logout', '/login');
+            if ($users->save()) {
+                $this->message()->js()->success('Successfuly save your account', '/register');
+            } else {
+                $this->message()->js()->error('Failed to save your account', '/register');
+            }
         }
     }
 }

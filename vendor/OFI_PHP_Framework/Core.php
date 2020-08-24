@@ -176,7 +176,7 @@ class Core extends event
                     $className = '\\App\\Controllers\\'.$get_only_Controller_Name;
                     $classNameController = new $className();
 
-                    if (!method_exists($classNameController, $method_name)) {
+                    if (!method_exists($classNameController, $get_only_Method_Name)) {
                         $classNameErr = explode('\\', $className);
                         throw new Exception('File ' . str_replace('\\', '/', $className) .  ".php Error : Can't find method " . $get_only_Method_Name . '() in Class ' . $classNameErr[count($classNameErr) - 1], 1);
                         die();
@@ -236,7 +236,7 @@ class Core extends event
 
                 $classNameController -> $method_name();
             } else {
-                throw new Exception("Class " . $class_name . ' not found', 1);
+                throw new Exception("Class " . $class_name . ' not found, or some route are disabled', 1);
             }
         }
     }
