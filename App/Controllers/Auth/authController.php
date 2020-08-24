@@ -16,9 +16,7 @@ class authController extends Controller
         $event = new event();
         $event->whenRegistration();
 
-        if($this->must_post()) {
-            $this->whenRegistration();
-            
+        if($this->must_post()) {            
             $fullname = $this->request()->input('fullname');
             $username = $this->request()->input('username');
             $email = $this->request()->input('email');
