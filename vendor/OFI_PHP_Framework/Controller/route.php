@@ -38,6 +38,26 @@ class Route {
         }
     }
 
+    public function middleware($value)
+    {
+        if (self::$routeStatus) {
+
+            $explode = explode('@', $value);
+
+            // cek file apakah tersedia
+            $path = str_replace('\\', '/', BASEURL) . '/App/Middleware/' . str_replace('\\', '/', $explode[0]) . '.php';
+
+            if(!file_exists($path)) {
+                throw new Exception("File App/Middleware/" . str_replace('\\', '/', $explode[0]) . '.php not found!', 1);
+            }
+
+            self::$arrayRoute[self::$index]['middleware'] = $value; 
+            return self::$_instance;
+        } else {
+            throw new Exception("Invalid route code structure", 1);
+        }
+    }
+
     public function type($value)
     {
         if (self::$routeStatus) {
@@ -65,6 +85,20 @@ class Route {
             if(self::$arrayRoute[self::$index]['type'] == 'controller') {
                 if (strpos($value, "@") != true) {
                     throw new Exception("Route : ". $value ." error! You must define a method in your route" . '. For example ' . $value . '@example', 1);
+                }
+
+                $explode = explode('@', $value);
+                $path = str_replace('\\', '/', BASEURL) . '/App/Controllers/' . str_replace('\\', '/', $explode[0]) . '.php';
+
+                // Cek apakah file controller tersedia?
+                if(!file_exists($path)) {
+                    throw new Exception("File " . $explode[0] . '.php not found!', 1);
+                }
+            } else {
+                // Cek apakah file view tersedia?
+                $path = str_replace('\\', '/', BASEURL) . '/Views/' . $value . '.ofi.php'; 
+                if(!file_exists($path)) {
+                    throw new Exception("File /Views/" . $value . '.ofi.php not found!', 1);
                 }
             }
 

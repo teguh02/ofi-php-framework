@@ -174,6 +174,18 @@ class Core extends event
 
                 // Checking HTTP Method
                 if (!$searchValue['method'] || $_SERVER['REQUEST_METHOD'] === strtoupper($searchValue['method'])) {
+
+                    // Checking Middleware (if isset)
+                    if(isset($searchValue['middleware']) && $searchValue['middleware'] != null) {
+                        $explodeMiddleware = explode('@', $searchValue['middleware']);
+
+                        $middlewareFunction = (String) $explodeMiddleware[1];
+
+                        $middleware = '\\App\\Middleware\\' . (String) $explodeMiddleware[0];
+                        $middlewareClass = new $middleware;
+                        $middlewareClass -> $middlewareFunction();
+                    }
+
                     $className = '\\App\\Controllers\\'.$get_only_Controller_Name;
                     $classNameController = new $className();
 
@@ -185,7 +197,7 @@ class Core extends event
 
                     $classNameController->$get_only_Method_Name();
                 } else {
-                    $controller->error500('Error '.$searchValue['url'].' url is '.strtoupper($searchValue['method']).' HTTP Method');
+                    $controller->error500('Error! '.$searchValue['url'].' is '.strtoupper($searchValue['method']).' HTTP Method');
                 }
             } 
         } else {

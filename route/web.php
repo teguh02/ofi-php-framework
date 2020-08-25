@@ -25,14 +25,20 @@ Route::start()
     -> route(2) -> url('/register') ->  type('controller') -> to('Auth\authController@register')
     -> route(3) -> url('/logout') ->  type('controller') -> to('Auth\authController@logout') -> method('POST')
 
+    // For example Route with middleware 
+    -> route(4) -> url('/middleware') 
+    -> type('controller') 
+    -> to('Auth\authController@register') 
+    -> middleware('auth\auth@check') 
+
     /**
      * Index (Welcome) Route
      */
 
-    -> route(4) 
+    -> route(5) 
        -> url('/') 
-       -> type('controller') 
-       -> to('indexController@view') 
+       -> type('view') 
+       -> to('index') 
        -> method('GET')
 
     # Start write your route here
