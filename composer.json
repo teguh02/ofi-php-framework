@@ -25,6 +25,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": "^7.2",
         "filp/whoops": "^2.7",
         "plasticbrain/php-flash-messages": "^1.0",
         "phpmailer/phpmailer": "^6.1",
