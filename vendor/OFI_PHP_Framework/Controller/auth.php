@@ -51,6 +51,8 @@ trait auth {
                 } else {
                     $this->message()->js()->error('Username or password is wrong', '/login');
                 }
+            } else {
+                $this->message()->js()->error('Users not found!', '/login');
             }
         }
     }
