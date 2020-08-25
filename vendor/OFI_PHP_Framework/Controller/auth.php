@@ -13,7 +13,7 @@ trait auth {
         $controller = new Controller();
 
         if ($controller->getSession('app_id_user')) {
-            $controller->loadTemplate('Auth\home', null);
+            $controller->response() -> redirect('home');
         } else {
             $controller->loadTemplate('Auth\login', null);
         }
@@ -25,7 +25,7 @@ trait auth {
         $controller = new Controller();
 
         if ($controller->getSession('app_id_user')) {
-            $controller->loadTemplate('Auth\home', null);
+            $controller->response() -> redirect('home');
         } else {
             $controller->loadTemplate('Auth\register', null);
         }
@@ -49,7 +49,7 @@ trait auth {
                     $this->setSession('app_id_user', $users->id);
                     $this->message()->js()->success('Successfuly to login', '/home');
                 } else {
-                    $this->message()->js()->error('Username or password is wrong', '/register');
+                    $this->message()->js()->error('Username or password is wrong', '/login');
                 }
             }
         }
@@ -65,6 +65,31 @@ trait auth {
             
             $controller->setSession('app_id_user', null);
             $controller->message()->js()->success('Successfuly logout', '/login');
+        }
+    }
+
+    public function saveRegisterData($data)
+    {
+        // Cek user berdasarkan email dan username
+        // apakah sudah ada atau belum
+
+        $event = new event();
+        $event->whenRegistration();
+
+        $cek = users::where('email', $data['email']) 
+                -> orWhere('username', $data['username']) 
+                -> first();
+
+        if($cek) {
+            $this->message()->flash()->error('Username or email are registered in our system', '/register');
+            die();
+        }
+        
+        // Jika belum ada maka save data
+        if (users::insert($data)) {
+            $this->message()->js()->success('Successfuly save your account', '/register');
+        } else {
+            $this->message()->js()->error('Failed to save your account', '/register');
         }
     }
 }

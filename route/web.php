@@ -1,63 +1,43 @@
 <?php
 
+use vendor\OFI_PHP_Framework\Controller\Route;
+
 /**
- * URL Declaration in array
- * HTTP Method Support GET and POST only, this optional, you can write method or not.
- * The default HTTP Method is GET, if you not write HTTP Method  (See the sample).
+ * You can define your application routes here
+ * Please don't remove Route::start and -> end() or you can damage 
+ * our system
  * 
- *  Kinds of Type :
- *    1. controller  is redirect to a controller (use @ for select a method)
- *    2. url         is redirect to a URL. For example you can write like this www.google.com
- * 
- * Now you can auto detect controller from url
- * 
- * For example from this url :
- * http://localhost:9000/index/view
- * 
- * You can call indexController (inside Controllers folder)
- * and call 'view' method
- * 
- * Note :  > http://localhost:9000/ is your app url
- *         > index is the controller file and class name 
- *            
- *           Example :
- *            # index = indexController.php
- *            # home = homeController.php
- *            # /base/auth = /base/authController.php
- * 
- *         > view is methods name what do you want to call
- * 
- *            public function view() {
- *              // your code
- *            }
- * 
- * For this url : 
- * http://localhost:9000/Auth/home/index
- * 
- * Homecontroller are located in 'Auth folder'
- *
- * Tips! If you need you can delete example route
+ * Explanation :
+ * 1. route(Number) same as array index start from 0
+ * 2. url(string) is your route
+ * 3. type(string) is your route type (view or controller)
+ * 4. to(string) is the destination from your route
+ * 5. method(string) is your route HTTP Method (Only Get or POST)
  */
 
-$route = [
-    // Auth Route Declaration
-    // you can remove '//' tag to turn on the route
+Route::start()
 
-    ['url' => "login",'type' => 'controller','to' => 'Auth\authController@login',],
-    ['url' => "register",'type' => 'controller','to' => 'Auth\authController@register',],
-    // ['url' => "logout", 'method' => 'POST', 'type' => 'controller','to' => 'Auth\authController@logout',],
-    ['url' => "home",'type' => 'controller','to' => 'Auth\homeController@home',],
+    /**
+     * Auth Route
+     */
+    -> route(0) -> url('/login') -> type('controller') -> to('Auth\authController@login')
+    -> route(1) -> url('/home') -> type('controller') -> to('Auth\homeController@home')
+    -> route(2) -> url('/register') ->  type('controller') -> to('Auth\authController@register')
+    -> route(3) -> url('/logout') ->  type('controller') -> to('Auth\authController@logout') -> method('POST')
 
-    [
-        'url'  => '', // Home (main index.php file)
-        'type' => 'controller',
-        'to'   => 'indexController@view',
-    ],    
-    
-    [
-        'url'  => 'uploadImage',
-        'type' => 'controller',
-        'method' => 'post',
-        'to'   => 'indexController@uploadImage',
-    ],   
-];
+    /**
+     * Index (Welcome) Route
+     */
+
+    -> route(4) 
+       -> url('/') 
+       -> type('controller') 
+       -> to('indexController@view') 
+       -> method('GET')
+
+    # Start write your route here
+
+    // Your code
+
+-> end();
+

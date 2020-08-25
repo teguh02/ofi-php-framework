@@ -9,6 +9,7 @@ class homeController extends Controller
 {
     public function __construct()
     {
+        // Middleware Auth
         $auth = new auth();
         $auth -> check();
     }

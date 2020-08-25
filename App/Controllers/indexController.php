@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
-use vendor\OFI_PHP_Framework\Controller;
+use App\blog;
 use App\Core\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
-use App\blog;
+use vendor\OFI_PHP_Framework\Controller;
+use vendor\OFI_PHP_Framework\Controller\Route;
 
 class indexController extends Controller
 {
@@ -52,6 +53,21 @@ class indexController extends Controller
     public function view()
     {
         $this->loadView('index', []);
+    }
+
+    /**
+     * When you wants to get all your route data
+     * you can use like this
+     */
+
+    public function routes()
+    {
+        // $route = Route::getAsObject();
+        $route = Route::getAsArray();
+
+        echo "<pre>";
+        print_r($route);
+        echo "<pre>";
     }
 
     public function uploadImage()

@@ -6,6 +6,7 @@ use App\provider\event;
 use vendor\OFI_PHP_Framework\Controller;
 use Exception;
 use App\Middleware\kernel as middlewareKernel;
+use vendor\OFI_PHP_Framework\Controller\Route;
 
 session_start();
 global $config;
@@ -91,7 +92,7 @@ class Core extends event
     public function route()
     {
         include 'route/web.php';
-
+        $route = Route::getAsArray();
         $get_url = $this->project_index_path;
 
         /**

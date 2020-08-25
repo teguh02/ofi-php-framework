@@ -25,11 +25,4 @@
 </ul>
 
 ### Documentation
-You can read the documentation by visit <a href="http://ofi.pigoora.com">this link</a>
-
-### Project Testing Example
-
-<ul>
-    <li> <a href="https://github.com/teguh02/ofi-php-framework/tree/Testing_fetch_API_Data">Testing_fetch_API_Data</a> </li>
-    <li> <a href="https://github.com/teguh02/ofi-php-framework/tree/Testing_JSON_Response"> Testing_JSON_Response</a> </li>
-</ul>
+You can read the documentation by visit <a href="#">this link</a>
