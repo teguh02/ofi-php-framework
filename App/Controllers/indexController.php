@@ -38,16 +38,23 @@ class indexController extends Controller
     public function requestExample()
     {
         // Untuk mendapatkan semua value yang ada di header
-        $d = $this->request() -> header() -> all();
+        $d['header_All'] = $this->request() -> header() -> all();
 
         // Untuk mendapatkan hanya satu value yang ada di header
-        $d = $this->request() -> header() -> first('nama');
+        $d['header_nama'] = $this->request() -> header() -> first('nama');
 
         // Untuk mendapatkan value inputan baik secara POST method
         // maupun GET method
-        $d = $this->request() -> input('nama');
+        $d['inputan'] = $this->request() -> input('nama');
 
-        print_r($d);
+        // Untuk mengatur data cookie
+        echo $this->setCookie('Author', 'Teguh Rijanandi');
+
+        // Untuk mendapatkan semua data cookie
+        $d['cookie_all'] = $this->request() -> Cookie();
+        $d['cookie_first:PHPSESSID'] = $this->request() -> Cookie('PHPSESSID');
+        
+        $this->response() -> print_r($d);
     }
 
     public function view()
