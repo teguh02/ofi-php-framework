@@ -10,7 +10,7 @@
 
 <ul>
     <li> A PHP framework that takes the concept of the famous laravel and codeigniter framework </li>
-    <li> A PHP Framework with more complect and mini than laravel
+    <li> A PHP Framework with more complect and fast
 </ul>
 
 ### Teams 
