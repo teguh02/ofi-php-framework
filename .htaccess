@@ -17,5 +17,5 @@ LimitRequestBody 10240000
     Header set Access-Control-Allow-Origin "*"
 </IfModule>
 Header add Access-Control-Allow-Origin "*"
-Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
-Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
+Header add Access-Control-Allow-Headers "*"
+Header add Access-Control-Allow-Methods "GET, POST"
