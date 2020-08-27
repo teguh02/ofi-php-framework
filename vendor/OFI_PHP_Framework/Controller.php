@@ -4,7 +4,6 @@ namespace vendor\OFI_PHP_Framework;
 
 use App\provider\event;
 use Illuminate\Database\Capsule\Manager as DB;
-use Illuminate\Database\Capsule\ManagerTrait;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use vendor\OFI_PHP_Framework\Flash\message;
@@ -13,6 +12,7 @@ use vendor\OFI_PHP_Framework\Support\Request;
 use vendor\OFI_PHP_Framework\Support\Response;
 use vendor\OFI_PHP_Framework\Support\Session;
 use vendor\OFI_PHP_Framework\Support\View;
+use vendor\OFI_PHP_Framework\ManagerTrait;
 
 class Controller extends event
 {
@@ -21,8 +21,8 @@ class Controller extends event
     private $request = null;
     private $header_request = false;
 
-    use message;
     use ManagerTrait;
+    use message;
     use Request;
     use Response;
     use View;

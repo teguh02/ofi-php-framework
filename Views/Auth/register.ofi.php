@@ -20,6 +20,8 @@
                 <h5 class="mb-3">Register Page</h5>
 
                <form action="/Auth/auth/saveRegister" method="post">
+                   <?= CSRF ?>
+
                    <small>Fullname</small>
                    <input class="form-control mb-2" required name="fullname" type="text">
 

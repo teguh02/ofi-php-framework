@@ -28,6 +28,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         array (
             'Whoops\\' => 7,
         ),
+        'V' => 
+        array (
+            'Volnix\\CSRF\\' => 12,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -86,6 +90,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
+        'Volnix\\CSRF\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/volnix/csrf/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (

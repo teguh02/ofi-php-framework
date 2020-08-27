@@ -21,6 +21,8 @@
                 <h5 class="mb-3">Login Page</h5>
 
                 <form action="/Auth/auth/deteksiLogin" method="POST">
+                    <?= CSRF ?>
+                    
                     <small>Email or Username</small>
                     <input class="form-control mb-2" required name="emailorusername" type="text">
 

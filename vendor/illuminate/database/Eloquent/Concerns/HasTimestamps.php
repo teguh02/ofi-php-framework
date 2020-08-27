@@ -11,13 +11,7 @@ trait HasTimestamps
      *
      * @var bool
      */
-    public $timestamps = null;
-
-    public function __construct()
-    {
-        global $config;
-        $this->timestamps = $config['timestamp'] != null ? $config['timestamp'] : false;
-    }
+    public $timestamps = true;
 
     /**
      * Update the model's update timestamp.

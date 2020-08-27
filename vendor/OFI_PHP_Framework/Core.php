@@ -14,6 +14,7 @@ require 'config.php';
 
 // Dont change this line
 define('BASEURL', $_SERVER["DOCUMENT_ROOT"]);
+define('CSRF', \Volnix\CSRF\CSRF::getHiddenInputString());
 
 class Core extends event
 {
@@ -64,8 +65,44 @@ class Core extends event
      */
     public function run()
     {
+        // To block PUT, PATCH, DELETE Request (Only GET and POST are allowed in our system)   
+        $request_method = $_SERVER['REQUEST_METHOD'];
+        if($request_method == 'PUT' || $request_method == 'PATCH' || $request_method == 'DELETE') {
+            throw new Exception('Sorry ' . $request_method . " Method not allowed in our system! You must use GET or POST", 1);
+            die();
+        }
+
         $this->whenRun();
         $this->route();
+        $this->CSRF();
+    }
+
+    /**
+     * To activate and validate CSRF Protection
+     * in our system
+     * Only POST will get validate by our system
+     */
+
+    public function CSRF()
+    {
+        // Detect HTTP Method
+        $request_method = $_SERVER['REQUEST_METHOD'];
+
+        if ($request_method == "POST") {
+
+            // generic POST data
+            $getToken = null;
+            if (isset($_POST)) {
+                $getToken = $_POST;
+            } else {
+                $getToken = $_REQUEST;
+            }
+
+            if (!\Volnix\CSRF\CSRF::validate($getToken) ) {
+                throw new Exception("Invalid CSRF token! Please add csrf token to your code", 1);
+                die();
+            } 
+        }
     }
 
     /**

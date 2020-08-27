@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Capsule;
+namespace vendor\OFI_PHP_Framework;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;

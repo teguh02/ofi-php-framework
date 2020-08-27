@@ -32,12 +32,6 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
         ForwardsCalls;
 
     /**
-     * Timestamp
-     */
-
-    public $timestamps;
-
-    /**
      * The connection name for the model.
      *
      * @var string|null
@@ -178,9 +172,6 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
         $this->syncOriginal();
 
         $this->fill($attributes);
-
-        global $config;
-        $this->timestamps = $config['timestamp'] != null ? $config['timestamp'] : false;
     }
 
     /**
@@ -405,6 +396,8 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
      *
      * @param  string  $key
      * @return string
+     *
+     * @deprecated This method is deprecated and will be removed in a future Laravel version.
      */
     protected function removeTableFromKey($key)
     {

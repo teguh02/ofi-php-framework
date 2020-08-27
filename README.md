@@ -6,7 +6,12 @@
 [![License](https://poser.pugx.org/ofitech/ofi-php-framework/license)](https://packagist.org/packages/ofitech/ofi-php-framework)
 [![Monthly Downloads](https://poser.pugx.org/ofitech/ofi-php-framework/d/monthly)](https://packagist.org/packages/ofitech/ofi-php-framework)
 
-<div>A PHP framework that takes the concept of the famous laravel and codeigniter framework</div>
+<b>What is OFI PHP Framework?</b>
+
+<ul>
+    <li> A PHP framework that takes the concept of the famous laravel and codeigniter framework </li>
+    <li> A PHP Framework with more complect and mini than laravel
+</ul>
 
 ### Teams 
 <ul>

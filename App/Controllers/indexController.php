@@ -33,7 +33,9 @@ class indexController extends Controller
         $blog->title = 'Contoh Artikel Satu';
         $blog->update();
 
+        echo "<pre>";
         print_r($blog);
+        echo "<pre>";
     }
 
     public function requestExample()

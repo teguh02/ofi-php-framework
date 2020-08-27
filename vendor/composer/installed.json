@@ -143,17 +143,17 @@
     },
     {
         "name": "illuminate/container",
-        "version": "v7.25.0",
-        "version_normalized": "7.25.0.0",
+        "version": "v7.26.0",
+        "version_normalized": "7.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/container.git",
-            "reference": "42d4242eaad399ec63aea39ea5976f342a799411"
+            "reference": "c0d892450f12ed22e4d8f7bec647230d0be8405b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/container/zipball/42d4242eaad399ec63aea39ea5976f342a799411",
-            "reference": "42d4242eaad399ec63aea39ea5976f342a799411",
+            "url": "https://api.github.com/repos/illuminate/container/zipball/c0d892450f12ed22e4d8f7bec647230d0be8405b",
+            "reference": "c0d892450f12ed22e4d8f7bec647230d0be8405b",
             "shasum": ""
         },
         "require": {
@@ -164,7 +164,7 @@
         "provide": {
             "psr/container-implementation": "1.0"
         },
-        "time": "2020-07-14T17:13:26+00:00",
+        "time": "2020-08-13T14:33:41+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -192,17 +192,17 @@
     },
     {
         "name": "illuminate/contracts",
-        "version": "v7.25.0",
-        "version_normalized": "7.25.0.0",
+        "version": "v7.26.0",
+        "version_normalized": "7.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/contracts.git",
-            "reference": "37a76782aef1bb83680143c4283b1bf3db751e96"
+            "reference": "56cd618b9801cdae35c389c71bb692fcb075ef64"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/contracts/zipball/37a76782aef1bb83680143c4283b1bf3db751e96",
-            "reference": "37a76782aef1bb83680143c4283b1bf3db751e96",
+            "url": "https://api.github.com/repos/illuminate/contracts/zipball/56cd618b9801cdae35c389c71bb692fcb075ef64",
+            "reference": "56cd618b9801cdae35c389c71bb692fcb075ef64",
             "shasum": ""
         },
         "require": {
@@ -210,7 +210,7 @@
             "psr/container": "^1.0",
             "psr/simple-cache": "^1.0"
         },
-        "time": "2020-07-19T12:38:38+00:00",
+        "time": "2020-08-17T15:18:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -238,17 +238,17 @@
     },
     {
         "name": "illuminate/database",
-        "version": "v7.25.0",
-        "version_normalized": "7.25.0.0",
+        "version": "v7.26.0",
+        "version_normalized": "7.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/database.git",
-            "reference": "899d35f5d00ea02f3eb370a0d764720b08f06cdf"
+            "reference": "9b9c5034b4a7ef772589d86a8076514e013b1e8e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/database/zipball/899d35f5d00ea02f3eb370a0d764720b08f06cdf",
-            "reference": "899d35f5d00ea02f3eb370a0d764720b08f06cdf",
+            "url": "https://api.github.com/repos/illuminate/database/zipball/9b9c5034b4a7ef772589d86a8076514e013b1e8e",
+            "reference": "9b9c5034b4a7ef772589d86a8076514e013b1e8e",
             "shasum": ""
         },
         "require": {
@@ -268,7 +268,7 @@
             "illuminate/pagination": "Required to paginate the result set (^7.0).",
             "symfony/finder": "Required to use Eloquent model factories (^5.0)."
         },
-        "time": "2020-08-10T15:08:36+00:00",
+        "time": "2020-08-24T13:29:22+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -302,17 +302,17 @@
     },
     {
         "name": "illuminate/events",
-        "version": "v7.25.0",
-        "version_normalized": "7.25.0.0",
+        "version": "v7.26.0",
+        "version_normalized": "7.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/events.git",
-            "reference": "14b21444c04c3052cffbd76e0862b23fdae5fc19"
+            "reference": "cd6170a6ef48d284a66429a786ce45575abc9c6b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/events/zipball/14b21444c04c3052cffbd76e0862b23fdae5fc19",
-            "reference": "14b21444c04c3052cffbd76e0862b23fdae5fc19",
+            "url": "https://api.github.com/repos/illuminate/events/zipball/cd6170a6ef48d284a66429a786ce45575abc9c6b",
+            "reference": "cd6170a6ef48d284a66429a786ce45575abc9c6b",
             "shasum": ""
         },
         "require": {
@@ -321,7 +321,7 @@
             "illuminate/support": "^7.0",
             "php": "^7.2.5"
         },
-        "time": "2020-06-18T15:37:01+00:00",
+        "time": "2020-08-24T13:15:53+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -349,17 +349,17 @@
     },
     {
         "name": "illuminate/support",
-        "version": "v7.25.0",
-        "version_normalized": "7.25.0.0",
+        "version": "v7.26.0",
+        "version_normalized": "7.26.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/support.git",
-            "reference": "9b0c0af8d2dd1a729f6337d0ed5c81a241ea43ab"
+            "reference": "893a17178ec34f749d6cfa92feec9843db55e39d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/support/zipball/9b0c0af8d2dd1a729f6337d0ed5c81a241ea43ab",
-            "reference": "9b0c0af8d2dd1a729f6337d0ed5c81a241ea43ab",
+            "url": "https://api.github.com/repos/illuminate/support/zipball/893a17178ec34f749d6cfa92feec9843db55e39d",
+            "reference": "893a17178ec34f749d6cfa92feec9843db55e39d",
             "shasum": ""
         },
         "require": {
@@ -382,7 +382,7 @@
             "symfony/var-dumper": "Required to use the dd function (^5.0).",
             "vlucas/phpdotenv": "Required to use the Env class and env helper (^4.0)."
         },
-        "time": "2020-08-10T13:58:23+00:00",
+        "time": "2020-08-20T13:40:03+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1707,5 +1707,47 @@
             "clean",
             "php"
         ]
+    },
+    {
+        "name": "volnix/csrf",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/volnix/csrf.git",
+            "reference": "9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/volnix/csrf/zipball/9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b",
+            "reference": "9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">= 5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7"
+        },
+        "time": "2017-09-19T13:24:13+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Volnix\\CSRF\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nick Volgas",
+                "email": "nvolgas@ark.org"
+            }
+        ],
+        "description": "CSRF protection library that compares provided token to session token to ensure request validity.",
+        "homepage": "https://github.com/volnix/csrf"
     }
 ]

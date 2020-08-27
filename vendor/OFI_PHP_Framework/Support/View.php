@@ -52,6 +52,9 @@ trait View {
                 <meta name="author" content="'. AUTHOR .'">
                 <meta name="google-site-verification" content="'. GoogleSiteVerification .'" />
 
+                <!-- Use this csrf token to access POST methods when you use javascript -->
+                ' . CSRF . '
+
                     <link rel="stylesheet" type="text/css" href="'. PROJECTURL .'/assets/css/bootstrap.min.css">
                     <script src="'. PROJECTURL .'/assets/js/jquery.min.js"></script>
                     <script src="'. PROJECTURL .'/assets/js/bootstrap.min.js"></script>';
