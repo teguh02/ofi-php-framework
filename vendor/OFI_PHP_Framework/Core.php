@@ -14,6 +14,12 @@ require 'config.php';
 
 // Dont change this line
 define('BASEURL', $_SERVER["DOCUMENT_ROOT"]);
+
+
+/**
+ * Add CSRF input hidden to your form
+ */
+
 define('CSRF', \Volnix\CSRF\CSRF::getHiddenInputString());
 
 class Core extends event
@@ -88,6 +94,9 @@ class Core extends event
         // Detect HTTP Method
         $request_method = $_SERVER['REQUEST_METHOD'];
 
+        // Get Request URL
+        $request_url = $_SERVER['REQUEST_URI'];
+
         if ($request_method == "POST") {
 
             // generic POST data
@@ -98,10 +107,16 @@ class Core extends event
                 $getToken = $_REQUEST;
             }
 
-            if (!\Volnix\CSRF\CSRF::validate($getToken) ) {
-                throw new Exception("Invalid CSRF token! Please add csrf token to your code", 1);
-                die();
-            } 
+            // Cari apakah url pada request_url ada dalam daftar bypassCSRF?
+            include 'App/Middleware/bypassCSRF.php';
+
+            // Jika tidak ditemukan dalam daftar array maka tampilkan pesan
+            if(!in_array($request_url, $bypass)) {
+                if (!\Volnix\CSRF\CSRF::validate($getToken) ) {
+                    throw new Exception("Invalid CSRF token! Please add csrf token to your code", 1);
+                    die();
+                }
+            }
         }
     }
 

@@ -12,7 +12,6 @@ use vendor\OFI_PHP_Framework\Support\Request;
 use vendor\OFI_PHP_Framework\Support\Response;
 use vendor\OFI_PHP_Framework\Support\Session;
 use vendor\OFI_PHP_Framework\Support\View;
-use vendor\OFI_PHP_Framework\ManagerTrait;
 
 class Controller extends event
 {
@@ -21,7 +20,6 @@ class Controller extends event
     private $request = null;
     private $header_request = false;
 
-    use ManagerTrait;
     use message;
     use Request;
     use Response;
