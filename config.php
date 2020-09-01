@@ -25,10 +25,9 @@ $config = [
     'driver'        => 'mysql',
     'port'          => 3306,
     'host'          => 'localhost',
-    'dbname'        => 'ofi',
+    'database'        => 'ofi',
     'username'      => 'root',
-    'password'      => '',
-    'timestamp'     => false // Give created_at and updated_at to your table
+    'password'      => ''
 ];
 
 

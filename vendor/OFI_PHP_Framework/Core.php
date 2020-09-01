@@ -126,19 +126,21 @@ class Core extends event
      */
     public function searchByValue($id, $array)
     {
-        foreach ($array as $val) {
+
+        for ($i=0; $i < count($array) ; $i++) { 
             // Jika Request URI sama dengan /
             // dan url kosong ditemukan maka akan dialihkan ke index
-            if ($this->project_index_path == '/' && $val['url'] == '') {
-                return $val;
+            if ($this->project_index_path == '/' && $array[$i]['url'] == '') {
+                return $array[$i]['url'];
             } else {
-                if (strtolower($id) == strtolower($val['url'])) {
-                    return $val;
-                }                
-            }
-        }
 
-        return false;
+                if (strtolower($id) == strtolower($array[$i]['url'])) {
+                    return $array[$i]['url'];
+                }             
+            }
+
+            return false;
+        }
     }
 
     public function route()
@@ -193,7 +195,14 @@ class Core extends event
          * dengan ada nya proses $url = implode('', $url_array);
          */
 
-        $url = implode('', $url_array);
+        //  Proses mendeteksi apakah ada parameter atau tidak. 
+        // Jika ada maka bersihkan semua parameternya dan ambil url utamanya saja
+
+         if(substr(strtok(implode('', $url_array), '?'), -1) == '/') {
+             $url = rtrim(strtok(implode('', $url_array), '?'), '/');
+         } else {
+             $url = strtok(implode('', $url_array), '?');
+         }
 
         $searchValue = $this->searchByValue($url, $route);
         $controller = new Controller();
