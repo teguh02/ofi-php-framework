@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "480d3a295c1f005e91fb1a9be025d2bd",
+    "content-hash": "00e86e9e990122223a871659458fc378",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -542,17 +542,43 @@
                 "datetime",
                 "time"
             ],
-            "funding": [
+            "time": "2020-08-24T12:35:58+00:00"
+        },
+        {
+            "name": "ofi/ofi_php_framework",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teguh02/OFI_FW_Engine.git",
+                "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teguh02/OFI_FW_Engine/zipball/06d189f3c8c9472109b3e8b581d9f05eb388c232",
+                "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ofi\\ofi_php_framework\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
                 {
-                    "url": "https://opencollective.com/Carbon",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
-                    "type": "tidelift"
+                    "name": "Teguh Rijanandi",
+                    "email": "teguhrijanandi02@gmail.com"
                 }
             ],
-            "time": "2020-08-24T12:35:58+00:00"
+            "description": "OFI PHP Framework engine",
+            "time": "2020-09-15T12:08:35+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1711,6 +1737,5 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

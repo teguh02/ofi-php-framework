@@ -9,6 +9,7 @@
 
                 <br><br>
                 <form action="/Auth/auth/logout" method="post">
+                <?= CSRF ?>
                     <button class="btn btn-danger" type="submit">Logout Here</button>
                 </form>
             </div>

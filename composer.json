@@ -33,12 +33,12 @@
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
         "maximebf/debugbar": ">=1.0.0",
-        "volnix/csrf": "~1.0"
+        "volnix/csrf": "~1.0",
+        "ofi/ofi_php_framework": "^1.1"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "App/",
-            "vendor\\OFI_PHP_Framework\\": "vendor/OFI_PHP_Framework"
+            "App\\": "App/"
         }
     },
     "scripts" : {
