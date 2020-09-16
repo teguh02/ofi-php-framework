@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Auth;
 
-use vendor\OFI_PHP_Framework\Controller;
+use ofi\ofi_php_framework\Controller;
 use App\Middleware\auth\auth;
 
 class homeController extends Controller

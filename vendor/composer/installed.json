@@ -557,23 +557,23 @@
     },
     {
         "name": "ofi/ofi_php_framework",
-        "version": "v1.1",
-        "version_normalized": "1.1.0.0",
+        "version": "V1.4",
+        "version_normalized": "1.4.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/teguh02/OFI_FW_Engine.git",
-            "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232"
+            "url": "https://github.com/teguh02/OFI_PHP_FW.git",
+            "reference": "fa966982a3d95f000e92ee60626f9e35497ff1c4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/teguh02/OFI_FW_Engine/zipball/06d189f3c8c9472109b3e8b581d9f05eb388c232",
-            "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232",
+            "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/fa966982a3d95f000e92ee60626f9e35497ff1c4",
+            "reference": "fa966982a3d95f000e92ee60626f9e35497ff1c4",
             "shasum": ""
         },
         "require": {
             "php": "^7.2"
         },
-        "time": "2020-09-15T12:08:35+00:00",
+        "time": "2020-09-15T12:25:04+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00e86e9e990122223a871659458fc378",
+    "content-hash": "cdec2026e013a73978cc7ca23fa7ec27",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -546,16 +546,16 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v1.1",
+            "version": "V1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/teguh02/OFI_FW_Engine.git",
-                "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232"
+                "url": "https://github.com/teguh02/OFI_PHP_FW.git",
+                "reference": "fa966982a3d95f000e92ee60626f9e35497ff1c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_FW_Engine/zipball/06d189f3c8c9472109b3e8b581d9f05eb388c232",
-                "reference": "06d189f3c8c9472109b3e8b581d9f05eb388c232",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/fa966982a3d95f000e92ee60626f9e35497ff1c4",
+                "reference": "fa966982a3d95f000e92ee60626f9e35497ff1c4",
                 "shasum": ""
             },
             "require": {
@@ -578,7 +578,7 @@
                 }
             ],
             "description": "OFI PHP Framework engine",
-            "time": "2020-09-15T12:08:35+00:00"
+            "time": "2020-09-15T12:25:04+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1737,5 +1737,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

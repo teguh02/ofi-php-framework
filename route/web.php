@@ -1,6 +1,6 @@
 <?php
 
-use vendor\OFI_PHP_Framework\Controller\Route;
+use ofi\ofi_php_framework\Controller\route as Route;
 
 /**
  * You can define your application routes here

@@ -5,7 +5,7 @@ namespace App\Core;
 use App\users;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-use vendor\OFI_PHP_Framework\Controller;
+use ofi\ofi_php_framework\Controller;
 use Exception;
 
 class helper extends Controller

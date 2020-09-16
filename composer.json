@@ -34,7 +34,7 @@
         "illuminate/container": "^7.25",
         "maximebf/debugbar": ">=1.0.0",
         "volnix/csrf": "~1.0",
-        "ofi/ofi_php_framework": "^1.1"
+        "ofi/ofi_php_framework": "^1.4"
     },
     "autoload": {
         "psr-4": {

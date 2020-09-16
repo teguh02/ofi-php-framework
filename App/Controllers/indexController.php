@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\blog;
 use App\Core\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
-use vendor\OFI_PHP_Framework\Controller;
-use vendor\OFI_PHP_Framework\Controller\Route;
-use vendor\OFI_PHP_Framework\Support\HttpSupport;
+use ofi\ofi_php_framework\Controller;
+use ofi\ofi_php_framework\Controller\Route;
+use ofi\ofi_php_framework\Support\HttpSupport;
 
 class indexController extends Controller
 {
@@ -30,8 +30,8 @@ class indexController extends Controller
     public function CapsuleManager()
     {
         $blog = blog::where('id', 1)->first();
-        $blog->title = 'Contoh Artikel Satu';
-        $blog->update();
+        // $blog->title = 'Contoh Artikel Satu';
+        // $blog->update();
 
         echo "<pre>";
         print_r($blog);
@@ -90,7 +90,7 @@ class indexController extends Controller
         // In this code sample
         // I'm use https://webhook.site/ as REST API Cathcer
 
-        $url = "https://webhook.site/5adf5298-4637-437c-b220-c14854de0ef7?app=ofi%20php%20framework";
+        $url = "https://webhook.site/88f55dae-79f0-40f3-abe4-fba4f83e4e38?app=ofi%20php%20framework";
 
         $http = new HttpSupport();
 

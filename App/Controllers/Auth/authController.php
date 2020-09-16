@@ -2,10 +2,10 @@
 
 namespace App\Controllers\Auth;
 
-use vendor\OFI_PHP_Framework\Controller;
+use ofi\ofi_php_framework\Controller;
 use App\users;
 use App\provider\event;
-use vendor\OFI_PHP_Framework\Controller\auth;
+use ofi\ofi_php_framework\Controller\auth;
 
 class authController extends Controller
 {

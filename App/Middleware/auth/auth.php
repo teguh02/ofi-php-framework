@@ -3,7 +3,7 @@
 namespace App\Middleware\auth;
 
 use App\users;
-use vendor\OFI_PHP_Framework\Controller;
+use ofi\ofi_php_framework\Controller;
 
 /**
  * Login Middleware
