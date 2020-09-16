@@ -31,3 +31,9 @@
 
 ### Documentation
 You can read the documentation by visit <a href="#">this link</a>
+
+### Hak Cipta
+Projek ini terdaftar di hak cipta dengan nomor dan tanggal pendaftaran EC00202017402, 9 Juni 2020
+
+![Depan](https://user-images.githubusercontent.com/43981051/93293123-75a37300-f811-11ea-8350-0173f264403a.jpg)
+![Belakang](https://user-images.githubusercontent.com/43981051/93293135-7b00bd80-f811-11ea-9c03-9387484d8edb.jpg)
