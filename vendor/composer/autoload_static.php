@@ -26,6 +26,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'o' => 
         array (
             'ofi\\ofi_php_framework\\' => 22,
+            'ofi\\ofi_curl\\' => 13,
         ),
         'W' => 
         array (
@@ -89,6 +90,10 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         'ofi\\ofi_php_framework\\' => 
         array (
             0 => __DIR__ . '/..' . '/ofi/ofi_php_framework/src',
+        ),
+        'ofi\\ofi_curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ofi/ofi_curl/src',
         ),
         'Whoops\\' => 
         array (
@@ -204,6 +209,16 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'Mustache' => 
+            array (
+                0 => __DIR__ . '/..' . '/mustache/mustache/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
@@ -217,6 +232,7 @@ class ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit94043ae1bfc5ad1c0e568d555cd7b7b3::$classMap;
 
         }, null, ClassLoader::class);

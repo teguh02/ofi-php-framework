@@ -2,7 +2,7 @@
     "name": "ofitech/ofi-php-framework",
     "description": "A Mini Laravel PHP framework",
     "type": "project",
-    "version": "2.0",
+    "version": "2.1",
     "license": "MIT",
     "keywords": [
         "framework",
@@ -33,8 +33,9 @@
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
         "maximebf/debugbar": ">=1.0.0",
-        "volnix/csrf": "~1.0",
-        "ofi/ofi_php_framework": "^1.4"
+        "mustache/mustache": "^2.13",
+        "ofi/ofi_php_framework": "^1.6",
+        "ofi/ofi_curl": "^1.6"
     },
     "autoload": {
         "psr-4": {
