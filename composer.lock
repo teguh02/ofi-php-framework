@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "722528374813f923cc97abe5b4df28e3",
+    "content-hash": "3778fae921bb50f6989dff01ec4b068c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -638,16 +638,16 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v1.6",
+            "version": "v2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teguh02/OFI_PHP_FW.git",
-                "reference": "7e264d5e72a568eee945ea2946a73473df629a3b"
+                "reference": "815de7b68f0ad4f5a28799568da9a8224ef36565"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/7e264d5e72a568eee945ea2946a73473df629a3b",
-                "reference": "7e264d5e72a568eee945ea2946a73473df629a3b",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/815de7b68f0ad4f5a28799568da9a8224ef36565",
+                "reference": "815de7b68f0ad4f5a28799568da9a8224ef36565",
                 "shasum": ""
             },
             "require": {
@@ -670,7 +670,7 @@
                 }
             ],
             "description": "OFI PHP Framework engine",
-            "time": "2020-09-16T07:18:59+00:00"
+            "time": "2020-09-17T04:10:18+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -1862,46 +1862,6 @@
                 "php"
             ],
             "time": "2020-07-22T23:32:04+00:00"
-        },
-        {
-            "name": "volnix/csrf",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/volnix/csrf.git",
-                "reference": "9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/volnix/csrf/zipball/9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b",
-                "reference": "9d1abbf3ce9bda1b34d7f8f70fa0871bb7a5dd6b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Volnix\\CSRF\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nick Volgas",
-                    "email": "nvolgas@ark.org"
-                }
-            ],
-            "description": "CSRF protection library that compares provided token to session token to ensure request validity.",
-            "homepage": "https://github.com/volnix/csrf",
-            "time": "2017-09-19T13:24:13+00:00"
         }
     ],
     "packages-dev": [],

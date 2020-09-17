@@ -25,6 +25,8 @@
             <h1>Hello World!</h1>
             <h3>Welcome in OFI PHP Framework, I Hope You Can Enjoy This Project</h3>
 
+            {{App}}
+
             <br>
 
             <a href="https://github.com/teguh02/ofi-php-framework">Open Github</a>

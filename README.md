@@ -13,6 +13,16 @@
     <li> A PHP Framework with more complect and fast
 </ul>
 
+OFI PHP Framework Ver 2.1
+
+<b>Whats New?</b>
+<ul>
+    <li>Database Engine</li>
+    <li>OFI CURL HTTP Support</li>
+    <li>Simple Mustache (Beta)</li>
+    <li>And Many More ...</li>
+</ul>
+
 ### Teams 
 <ul>
     <li>

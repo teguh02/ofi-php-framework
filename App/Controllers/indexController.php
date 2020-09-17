@@ -62,7 +62,19 @@ class indexController extends Controller
 
     public function view()
     {
-        $this->loadView('index', []);
+
+        /**
+         * Please see this screenshoot
+         * https://freeimage.host/i/2o8PIf
+         * 
+         * You will see small "OFI Php Framework" text
+         * This is a sample for mustache usage
+         * and below is the mustache data
+         */
+
+        $this->loadView('index', [
+            'App' => 'OFI Php Framework'
+        ]);
     }
 
     /**

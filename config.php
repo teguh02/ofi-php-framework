@@ -19,6 +19,11 @@ define('PROJECTURL', 'http://localhost:9000');
 // default 1044070 = 1 mb
 define('MAXUPLOAD', 1044070);
 
+// define the views folder for OFI PHP Framework mustache
+// don't change it when you not understand about
+// our system
+define('ViewsFolder', dirname(__FILE__). '/Views');
+
 
 // Database MYSQLI connection configuration
 $config = [
