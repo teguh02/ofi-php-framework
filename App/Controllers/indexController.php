@@ -7,7 +7,7 @@ use App\Core\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
 use ofi\ofi_php_framework\Controller;
 use ofi\ofi_php_framework\Controller\Route;
-use ofi\ofi_php_framework\Support\HttpSupport;
+use ofi\ofi_curl\HttpSupport;
 
 class indexController extends Controller
 {
@@ -94,12 +94,17 @@ class indexController extends Controller
 
         $http = new HttpSupport();
 
-        // GET Code Example
-        $get = $http -> method('GET') -> url($url) -> execute();
+        // GET (Default is GET)
+        $get = $http -> url($url) -> execute();
 
-        // POST Code example
+        // POST 
+        
+        // $post = $http -> PUT()
+        // $post = $http -> PATCH()
+        // $post = $http -> DELETE()
+        // $post = $http -> GET()
 
-        $post = $http -> method("POST") 
+        $post = $http -> POST()
                 -> url($url)
                 
                 // Header as array
@@ -114,11 +119,10 @@ class indexController extends Controller
                     'Author'    => 'Teguh Rijanandi'
                 ]) -> execute();
 
-        // PUT Code Example
+        // PUT 
 
         // $put = $http -> method("PATCH") 
-        $put = $http -> method("PUT") 
-                -> url($url)
+        $put = $http -> PUT($url)
                 ->header([
                     'App: OFI PHP Framework',
                     'key: 123'
@@ -128,7 +132,7 @@ class indexController extends Controller
                     'Author'    => 'New Data : Teguh Rijanandi'
                 ]) -> execute();
 
-        // DELETE Code Method
+        // DELETE 
         $delete = $http -> method("DELETE") 
                 -> url($url . '&id=1')
                 ->header([

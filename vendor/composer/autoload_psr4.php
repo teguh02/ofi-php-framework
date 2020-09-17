@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'voku\\' => array($vendorDir . '/voku/portable-ascii/src/voku'),
     'ofi\\ofi_php_framework\\' => array($vendorDir . '/ofi/ofi_php_framework/src'),
+    'ofi\\ofi_curl\\' => array($vendorDir . '/ofi/ofi_curl/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Volnix\\CSRF\\' => array($vendorDir . '/volnix/csrf/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
