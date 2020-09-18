@@ -33,7 +33,6 @@
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
         "maximebf/debugbar": ">=1.0.0",
-        "mustache/mustache": "^2.13",
         "ofi/ofi_php_framework": "^2.0",
         "ofi/ofi_curl": "^1.6"
     },

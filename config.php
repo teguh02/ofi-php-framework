@@ -76,3 +76,16 @@ define('GmailPassword', 'yourpass');
 define('SMTPDebug', 0);
 define('senderEmail', 'system@ofiFramework.com');
 define('senderName', 'OFI Framework Mailing System');
+
+/**
+ * Risk configuration
+ * Don't change it when you not understand about
+ * our system or you can break our system
+ */
+
+
+// Locate where is upload folder
+define('UPLOADPATH', dirname(__FILE__). '/assets/upload');
+
+// define the views folder for OFI PHP Framework mustache
+define('ViewsFolder', dirname(__FILE__). '/Views');

@@ -104,8 +104,7 @@ class indexController extends Controller
         // $post = $http -> DELETE()
         // $post = $http -> GET()
 
-        $post = $http -> POST()
-                -> url($url)
+        $post = $http -> POST() -> url($url)
                 
                 // Header as array
                 ->header([

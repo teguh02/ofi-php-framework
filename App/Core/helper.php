@@ -93,6 +93,11 @@ class helper extends Controller
         include 'mimes.php';
         // $data['form'] adalah nama form input yang menjadi acuan
         // $data['folder'] adalah nama folder tujuan untuk menjadi penyimpanan
+        
+        // Cek apakah data form dan folder sudah diset atau belum
+        if(!isset($data['folder']) && !isset($data['form'])) {
+            throw new Exception("All request can't null", 1);
+        }
 
         $ekstensi_diperbolehkan	= $mimes;
         $nama = strtolower(self::random(rand(4, 12))) . '-' . str_replace(' ', '-', $_FILES[$data['form']]['name']);
@@ -101,17 +106,33 @@ class helper extends Controller
         $ukuran	= $_FILES[$data['form']]['size'];
         $file_tmp = $_FILES[$data['form']]['tmp_name'];	
         
+        
+        // Cek apakah ketika menerima file terdapat error atau tidak
+        if(isset($_FILES[$data['form']]['error']) && $_FILES[$data['form']]['error'] == 1) {
+            $status['status'] = 'ERROR WHILE RECEIVE FILES! Please try other file';
+            $status['filename'] = null;
+            $status['filesize'] = null;
+            $status['storageLocation'] = null;
+            return $status;
+            die();
+        }
+        
             if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
                 if($ukuran <= MAXUPLOAD){			
-
+                    
+                    // Cek apakah folder upload sudah tersedia?
+                    if(!is_dir(UPLOADPATH)) {
+                        throw new Exception("Root folder to store this file are not found!", 404);
+                    }
+                    
                     // Otomatis membuat direktori baru jika direktori yang diminta tidak ditemukan
-
-                    $dir = BASEURL . '/assets/upload/' . $data['folder'];
+                    $dir = UPLOADPATH . '/' . $data['folder'];
+                    
                     if (!file_exists( $dir ) && !is_dir($dir)) {
-                        mkdir($dir);       
+                        mkdir(UPLOADPATH . '/' . $data['folder']);
                     } 
 
-                    move_uploaded_file($file_tmp, BASEURL . '/assets/upload/' . $data['folder'] . '/' . $nama);
+                    move_uploaded_file($file_tmp, $dir . '/' . $nama);
 
                     $bytes = $ukuran;
 
@@ -148,16 +169,16 @@ class helper extends Controller
 
                 }else{
                     $status['status'] = 'THE SIZE OF FILE IS TOO LARGE';
-                    $status['filename'] = $nama;
-                    $status['filesize'] = $bytes;
-                    $status['storageLocation'] = PROJECTURL . '/assets/upload/' . $data['folder'] . '/' . $nama;
+                    $status['filename'] = null;
+                    $status['filesize'] = null;
+                    $status['storageLocation'] = null;
                     return $status;
                 }    
             }else{
                     $status['status'] = 'EXTENSION OF FILES IS NOT ALLOWED';
-                    $status['filename'] = $nama;
-                    $status['filesize'] = $bytes;
-                    $status['storageLocation'] = PROJECTURL . '/assets/upload/' . $data['folder'] . '/' . $nama;
+                    $status['filename'] = null;
+                    $status['filesize'] = null;
+                    $status['storageLocation'] = null;
                     return $status;
             }
     }
