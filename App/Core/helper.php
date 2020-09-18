@@ -100,7 +100,7 @@ class helper extends Controller
         }
 
         $ekstensi_diperbolehkan	= $mimes;
-        $nama = strtolower(self::random(rand(4, 12))) . '-' . str_replace(' ', '-', $_FILES[$data['form']]['name']);
+        $nama = strtolower(self::random(rand(4, 22))) . '-' . str_replace(' ', '-', $_FILES[$data['form']]['name']);
         $x = explode('.', $nama);
         $ekstensi = strtolower(end($x));
         $ukuran	= $_FILES[$data['form']]['size'];
