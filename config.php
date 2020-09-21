@@ -89,3 +89,6 @@ define('UPLOADPATH', dirname(__FILE__). '/assets/upload');
 
 // define the views folder for OFI PHP Framework mustache
 define('ViewsFolder', dirname(__FILE__). '/Views');
+
+// define root folder 
+define('BASEURL', dirname(__FILE__) . '/');
