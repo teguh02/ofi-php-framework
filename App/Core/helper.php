@@ -84,6 +84,69 @@ class helper extends Controller
     }
 
     /**
+     * This function can remove a folder
+     * and all files inside the folder
+     */
+    
+    public static function deleteFolder($dirname = null) {
+        
+        if(!isset($dirname) || $dirname == '') {
+            throw new Exception("Path can't null!", 500);
+        }
+        
+       $path = UPLOADPATH . '/' . $dirname;
+        
+        if(!is_dir($path)) {
+            $status['status'] = 'Folder '. $dirname .' not found!';
+            $status['path'] = $path;
+            
+            return $status;
+            die();
+        }
+        
+        array_map('unlink', glob("$path/*.*"));
+        rmdir($path);
+        
+        $status['status'] = 'success';
+        $status['path'] = UPLOADPATH . '/' . $dirname;
+        
+        return $status;
+    }
+    
+    /**
+     * Function to delete a file
+     **/
+    
+    public static function deleteFile($fileName = null) {
+        $status = [];
+        
+        if(!isset($fileName) || $fileName == '') {
+            throw new Exception("Filename can't null!", 500);
+        }
+        
+        $file = UPLOADPATH .'/'. $fileName;
+        
+        if(!is_file($file)) {
+            $status['status'] = 'File not found!';
+            $status['filename'] = $fileName;
+            
+            return $status;
+            die();
+        } 
+        
+        // Jika file ada maka hapus
+        if(unlink($file)) {
+            $status['status'] = 'success';
+            $status['filename'] = $fileName;
+        } else {
+            $status['status'] = 'error';
+            $status['filename'] = $fileName;
+        }
+        
+        return $status;
+    }
+
+    /**
      * Method upload
      * Help to upload a file
      */
