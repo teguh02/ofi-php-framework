@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\blog;
-use App\Core\helper as h; // Untuk mempersingkat nama class
+use ofi\ofi_php_framework\Helper\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
 use ofi\ofi_php_framework\Controller;
 use ofi\ofi_php_framework\Controller\Route;

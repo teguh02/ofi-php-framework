@@ -26,14 +26,11 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^7.2",
-        "filp/whoops": "^2.7",
-        "plasticbrain/php-flash-messages": "^1.0",
         "phpmailer/phpmailer": "^6.1",
         "illuminate/database": "^7.25",
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
-        "maximebf/debugbar": ">=1.0.0",
-        "ofi/ofi_php_framework": "^2.9",
+        "ofi/ofi_php_framework": "^3.9.2",
         "ofi/ofi_curl": "^1.6"
     },
     "autoload": {

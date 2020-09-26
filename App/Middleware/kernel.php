@@ -2,7 +2,7 @@
 
 namespace App\Middleware;
 
-use App\Core\helper;
+use ofi\ofi_php_framework\Helper\helper;
 use App\Middleware\cors;
 
 class kernel {

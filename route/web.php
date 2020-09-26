@@ -40,6 +40,8 @@ Route::start()
        -> type('view') 
        -> to('index') 
        -> method('GET')
+       -> name('beranda') // you can define route name like this
+       // and you can see current route name in debugbar
 
     # Start write your route here
 

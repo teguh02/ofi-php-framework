@@ -12,8 +12,8 @@ define('PROJECTNAME', 'OFI Framework');
 define('ENVIRONMENT', 'development');
 
 // Your Project URL
-// do not use the '/' at the end of the url http: // localhost: 9000
-define('PROJECTURL', 'http://localhost:9000');
+// do not use the '/' at the end of the url http://localhost: 9000
+define('PROJECTURL', 'http://localhost/ofi-php-framework.git');
 
 // Upload file function limiter 
 // default 1044070 = 1 mb
@@ -86,9 +86,6 @@ define('senderName', 'OFI Framework Mailing System');
 
 // Locate where is upload folder
 define('UPLOADPATH', dirname(__FILE__). '/assets/upload');
-
-// define the views folder for OFI PHP Framework mustache
-define('ViewsFolder', dirname(__FILE__). '/Views');
 
 // define root folder 
 define('BASEURL', dirname(__FILE__) . '/');

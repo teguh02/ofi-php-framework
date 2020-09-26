@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3da0a015a23e1bb864f233b3c88590b7",
+    "content-hash": "bef0dab64f26d7bddf751f3a0e307508",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -606,20 +606,23 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v2.9",
+            "version": "v3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teguh02/OFI_PHP_FW.git",
-                "reference": "11e1ab1745a5d9ec0cd952024c3671f5522f0b55"
+                "reference": "21cf5202c2d113121cf52bda0544f4902c06770f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/11e1ab1745a5d9ec0cd952024c3671f5522f0b55",
-                "reference": "11e1ab1745a5d9ec0cd952024c3671f5522f0b55",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/21cf5202c2d113121cf52bda0544f4902c06770f",
+                "reference": "21cf5202c2d113121cf52bda0544f4902c06770f",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2"
+                "filp/whoops": "^2.7",
+                "maximebf/debugbar": ">=1.0.0",
+                "php": "^7.2",
+                "plasticbrain/php-flash-messages": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -638,7 +641,7 @@
                 }
             ],
             "description": "OFI PHP Framework engine",
-            "time": "2020-09-23T09:24:38+00:00"
+            "time": "2020-09-26T01:57:24+00:00"
         },
         {
             "name": "phpmailer/phpmailer",

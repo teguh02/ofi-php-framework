@@ -11,10 +11,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                <!-- Or you can generate url path use a parameter like this, for example get data by id 1 -->
+                <!-- <a class="nav-link" href="<?= $Route->GeneratePath('/login', 'id:1') ?>">Login</a> -->
+
+                    <a class="nav-link" href="<?= $Route->GeneratePath('/login') ?>">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="<?= $Route->GeneratePath('/register') ?>">Register</a>
                 </li>
             </ul>
         </div>
@@ -24,8 +27,6 @@
         <div class="container">
             <h1>Hello World!</h1>
             <h3>Welcome in OFI PHP Framework, I Hope You Can Enjoy This Project</h3>
-
-            {{App}}
 
             <br>
 
