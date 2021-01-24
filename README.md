@@ -13,16 +13,6 @@
     <li> A PHP Framework with more complect and fast
 </ul>
 
-OFI PHP Framework Ver 2.1
-
-<b>Whats New?</b>
-<ul>
-    <li>Database Engine</li>
-    <li>OFI CURL HTTP Support</li>
-    <li>Simple Mustache (Beta)</li>
-    <li>And Many More ...</li>
-</ul>
-
 <b>Instalation</b>
 You can download this repository and type <code> composer update </code> inside this project folder.
 Or you can type <code> composer create-project ofitech/ofi-php-framework </code>

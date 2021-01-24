@@ -25,12 +25,12 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2|^8.0",
         "phpmailer/phpmailer": "^6.1",
         "illuminate/database": "^7.25",
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
-        "ofi/ofi_php_framework": "^3.9.2",
+        "ofi/ofi_php_framework": "^3.9.5",
         "ofi/ofi_curl": "^1.6"
     },
     "autoload": {

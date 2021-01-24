@@ -13,7 +13,7 @@ define('ENVIRONMENT', 'development');
 
 // Your Project URL
 // do not use the '/' at the end of the url http://localhost: 9000
-define('PROJECTURL', 'http://localhost/ofi-php-framework.git');
+define('PROJECTURL', 'http://localhost/lks');
 
 // Upload file function limiter 
 // default 1044070 = 1 mb

@@ -66,21 +66,6 @@ class indexController extends Controller
     }
 
     /**
-     * When you wants to get all your route data
-     * you can use like this
-     */
-
-    public function routes()
-    {
-        // $route = Route::getAsObject();
-        $route = Route::getAsArray();
-
-        echo "<pre>";
-        print_r($route);
-        echo "<pre>";
-    }
-
-    /**
      * Example when you want to GET or POST data to other API
      * server
      */

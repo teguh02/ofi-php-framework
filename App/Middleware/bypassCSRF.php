@@ -11,4 +11,5 @@
     // '/yourRoute',
     // '/index/yourRoute',
     // '/index/routes'
+    '/any-method',
  ];

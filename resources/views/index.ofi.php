@@ -11,13 +11,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <!-- Or you can generate url path use a parameter like this, for example get data by id 1 -->
-                <!-- <a class="nav-link" href="<?= $Route->GeneratePath('/login', 'id:1') ?>">Login</a> -->
-
-                    <a class="nav-link" href="<?= $Route->GeneratePath('/login') ?>">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $Route->GeneratePath('/register') ?>">Register</a>
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $route -> generatePath('get-method') ?>">Get Method</a>
                 </li>
             </ul>
         </div>
