@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * OFI PHP Framework cli tools
+ */
+
+require_once 'vendor/autoload.php';
+require_once 'config.php';
+
+use ofi\ofi_php_framework\Cli\OfiCli;
+
+$cli = new OfiCli;
+$cli->run();
