@@ -30,7 +30,7 @@
         "illuminate/database": "^7.25",
         "illuminate/events": "^7.25",
         "illuminate/container": "^7.25",
-        "ofi/ofi_php_framework": "^3.9.5",
+        "ofi/ofi_php_framework": "^3.9.7",
         "ofi/ofi_curl": "^1.6"
     },
     "autoload": {

@@ -584,16 +584,16 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v3.9.6",
+            "version": "v3.9.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teguh02/OFI_PHP_FW.git",
-                "reference": "2bd54f19a4702d02994605b7422bc04a049e3983"
+                "reference": "6ab8016bd4916ff22a9f37797906b9796e3bbac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/2bd54f19a4702d02994605b7422bc04a049e3983",
-                "reference": "2bd54f19a4702d02994605b7422bc04a049e3983",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/6ab8016bd4916ff22a9f37797906b9796e3bbac6",
+                "reference": "6ab8016bd4916ff22a9f37797906b9796e3bbac6",
                 "shasum": ""
             },
             "require": {
@@ -619,9 +619,9 @@
             "description": "OFI PHP Framework engine",
             "support": {
                 "issues": "https://github.com/teguh02/OFI_PHP_FW/issues",
-                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.6"
+                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.7"
             },
-            "time": "2021-01-25T01:57:03+00:00"
+            "time": "2021-01-25T02:38:50+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
