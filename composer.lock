@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d51dc8fa395e47fd12b24283ee6031fb",
+    "content-hash": "d46a37dc7d54420beacaf40e7d6be497",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -584,21 +584,22 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v3.9.7",
+            "version": "v3.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teguh02/OFI_PHP_FW.git",
-                "reference": "6ab8016bd4916ff22a9f37797906b9796e3bbac6"
+                "reference": "57dd30d9f7ec3ecfe87f845075f6d9130627bbb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/6ab8016bd4916ff22a9f37797906b9796e3bbac6",
-                "reference": "6ab8016bd4916ff22a9f37797906b9796e3bbac6",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/57dd30d9f7ec3ecfe87f845075f6d9130627bbb5",
+                "reference": "57dd30d9f7ec3ecfe87f845075f6d9130627bbb5",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "^2.7",
-                "plasticbrain/php-flash-messages": "^1.0"
+                "plasticbrain/php-flash-messages": "^1.0",
+                "splitbrain/php-cli": "^1.1"
             },
             "type": "library",
             "autoload": {
@@ -619,9 +620,9 @@
             "description": "OFI PHP Framework engine",
             "support": {
                 "issues": "https://github.com/teguh02/OFI_PHP_FW/issues",
-                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.7"
+                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.8"
             },
-            "time": "2021-01-25T02:38:50+00:00"
+            "time": "2021-01-25T04:43:37+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -898,6 +899,61 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "splitbrain/php-cli",
+            "version": "1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/splitbrain/php-cli.git",
+                "reference": "fb4f888866d090b10e3e68292d197ca274cea626"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/splitbrain/php-cli/zipball/fb4f888866d090b10e3e68292d197ca274cea626",
+                "reference": "fb4f888866d090b10e3e68292d197ca274cea626",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.5.*"
+            },
+            "suggest": {
+                "psr/log": "Allows you to make the CLI available as PSR-3 logger"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "splitbrain\\phpcli\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Gohr",
+                    "email": "andi@splitbrain.org"
+                }
+            ],
+            "description": "Easy command line scripts for PHP with opt parsing and color output. No dependencies",
+            "keywords": [
+                "argparse",
+                "cli",
+                "command line",
+                "console",
+                "getopt",
+                "optparse",
+                "terminal"
+            ],
+            "support": {
+                "issues": "https://github.com/splitbrain/php-cli/issues",
+                "source": "https://github.com/splitbrain/php-cli/tree/master"
+            },
+            "time": "2019-12-12T08:24:54+00:00"
         },
         {
             "name": "symfony/console",

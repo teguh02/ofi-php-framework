@@ -1,2 +1,6 @@
 /vendor
 config.php
+
+# Hide all sample file 
+App/sample*.php
+App/Controllers/sample*.php
