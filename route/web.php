@@ -7,23 +7,23 @@ use App\Controllers\Auth\authController;
 Route::auto(true);
 
 Route::get('get-method', function() {
-    echo 'GET method test';
+    d($GLOBALS);
 }, ['name' => 'get-method']);
 
 Route::post('post-method', function() {
-    echo 'Post method test';
+    d($GLOBALS);
 });
 
 Route::delete('delete-method', function() {
-    echo 'Delete method test';
+    d($GLOBALS);
 });
 
 Route::put('put-method', function() {
-    echo 'PUT Method test';
+    d($GLOBALS);
 });
 
 Route::any('any-method', function() {
-    echo 'ANY Method test';
+    d($GLOBALS);
 });
 
 Route::any('apapun', function() {
