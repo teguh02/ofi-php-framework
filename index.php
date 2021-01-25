@@ -13,11 +13,6 @@
  * Contact : teguhrijanandi02@gmail.com
  */
 
-// check is vendor folder exists?
-if(!is_dir(dirname(__FILE__) . '/vendor')) {
-    throw new Exception("Vendor folder not found, you must run composer instal first!");
-}
-
 require 'vendor/autoload.php';
 
 /**

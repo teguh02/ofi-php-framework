@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6088269018422c6607a7f2b13bfc69af",
+    "content-hash": "d51dc8fa395e47fd12b24283ee6031fb",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -103,16 +103,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.9.1",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "307fb34a5ab697461ec4c9db865b20ff2fd40771"
+                "reference": "df7933820090489623ce0be5e85c7e693638e536"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/307fb34a5ab697461ec4c9db865b20ff2fd40771",
-                "reference": "307fb34a5ab697461ec4c9db865b20ff2fd40771",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/df7933820090489623ce0be5e85c7e693638e536",
+                "reference": "df7933820090489623ce0be5e85c7e693638e536",
                 "shasum": ""
             },
             "require": {
@@ -162,9 +162,15 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.9.1"
+                "source": "https://github.com/filp/whoops/tree/2.9.2"
             },
-            "time": "2020-11-01T12:00:00+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/denis-sokolov",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-24T12:00:00+00:00"
         },
         {
             "name": "illuminate/container",
@@ -578,16 +584,16 @@
         },
         {
             "name": "ofi/ofi_php_framework",
-            "version": "v3.9.5",
+            "version": "v3.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teguh02/OFI_PHP_FW.git",
-                "reference": "0c9ef42ec08ecb5dc4ef3a46e1a8eb31ff0e3a9a"
+                "reference": "2bd54f19a4702d02994605b7422bc04a049e3983"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/0c9ef42ec08ecb5dc4ef3a46e1a8eb31ff0e3a9a",
-                "reference": "0c9ef42ec08ecb5dc4ef3a46e1a8eb31ff0e3a9a",
+                "url": "https://api.github.com/repos/teguh02/OFI_PHP_FW/zipball/2bd54f19a4702d02994605b7422bc04a049e3983",
+                "reference": "2bd54f19a4702d02994605b7422bc04a049e3983",
                 "shasum": ""
             },
             "require": {
@@ -613,9 +619,9 @@
             "description": "OFI PHP Framework engine",
             "support": {
                 "issues": "https://github.com/teguh02/OFI_PHP_FW/issues",
-                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.5"
+                "source": "https://github.com/teguh02/OFI_PHP_FW/tree/v3.9.6"
             },
-            "time": "2021-01-24T12:24:39+00:00"
+            "time": "2021-01-25T01:57:03+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
