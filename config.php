@@ -13,11 +13,32 @@ define('ENVIRONMENT', 'development');
 
 // Your Project URL
 // do not use the '/' at the end of the url http://localhost: 9000
-define('PROJECTURL', 'http://localhost/lks');
+define('PROJECTURL', 'http://localhost:9000');
 
 // Upload file function limiter 
 // default 1044070 = 1 mb
 define('MAXUPLOAD', 1044070);
+
+// You can overwrite original error page
+// with your design when you change overwriteErrorPage 
+// to true, so you can use your own 
+// error page design
+// please see inside resources/views/errorPage
+define('overwriteErrorPage', false);
+
+// you can insert your own code 
+// to <head> tag by fill codeToHeader
+// array
+define('codeToHeader', [
+    '<link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">'
+]);
+
+// you can insert your own code
+// before </body> tag by fill codeBeforeBody
+// array
+define('codeBeforeBody', [
+    '<script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>'
+]);
 
 // Database MYSQLI connection configuration
 $config = [
@@ -28,7 +49,6 @@ $config = [
     'username'      => 'root',
     'password'      => ''
 ];
-
 
 /**
  * Define SEO tag for your website

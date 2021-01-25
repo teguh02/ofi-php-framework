@@ -11,13 +11,16 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="<?= $route -> generatePath('loginPage') ?>">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="<?= $route -> generatePath('registerPage') ?>">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $route -> generatePath('get-method') ?>">Get Method</a>
+                    <a class="nav-link" href="<?= $route -> generatePath('get-method', 'id:1') ?>">Route with parameter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $route -> generatePath('get-method', ['id:1', 'name:ofi', 'age:20']) ?>">Route with 2 parameter</a>
                 </li>
             </ul>
         </div>

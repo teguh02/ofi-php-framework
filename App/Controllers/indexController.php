@@ -6,7 +6,7 @@ use App\blog;
 use ofi\ofi_php_framework\Helper\helper as h; // Untuk mempersingkat nama class
 use Illuminate\Database\Capsule\Manager as DB;
 use ofi\ofi_php_framework\Controller;
-use ofi\ofi_php_framework\Controller\Route;
+use ofi\ofi_php_framework\Route\Route;
 use ofi\ofi_curl\HttpSupport;
 
 class indexController extends Controller

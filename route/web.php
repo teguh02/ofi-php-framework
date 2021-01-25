@@ -1,6 +1,8 @@
 <?php
 
 use ofi\ofi_php_framework\Route\Route;
+use App\Controllers\indexController;
+use App\Controllers\Auth\authController;
 
 Route::auto(true);
 
@@ -28,4 +30,6 @@ Route::any('apapun', function() {
     echo 'any';
 }, ['middleware' => [\App\Middleware\auth\auth::class, 'check']]);
 
-Route::get('/', [\App\Controllers\indexController::class, 'view'], ['name' => 'welcomePage']);
+Route::get('/', [indexController::class, 'view'], ['name' => 'welcomePage']);
+Route::get('/login', [authController::class, 'login'], ['name' => 'loginPage']);
+Route::get('/register', [authController::class, 'register'], ['name' => 'registerPage']);
